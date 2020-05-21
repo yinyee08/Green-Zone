@@ -23,6 +23,7 @@ public class bombBehavior : MonoBehaviour {
     Quaternion vertRotation;
     
     // Use this for initialization
+    //Start function
     void Start () {
         horizRotation.eulerAngles = new Vector3(0, 90, 0);
         vertRotation.eulerAngles = new Vector3(0, 0, 0);
