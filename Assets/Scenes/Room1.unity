@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e91cacca287c174b853f6a363c8f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Main
+  sceneName: Scene
   delayInSeconds: 0
   syncLoadScene: 1
   ARVR: 0
