@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8513044647973289316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427942095007881744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943f3fea1d06dbf448516a14eadc32dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkObject: {fileID: 5032950195109755442, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  useTransform: 1
-  trans: {fileID: 1423732300601150216}
-  pos: {x: 0, y: 0, z: 0}
-  euler: {x: 0, y: 0, z: 0}
-  rot: {x: 0, y: 0, z: 0, w: 0}
-  parent: {fileID: 0}
 --- !u!114 &81022707095855881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 1
+  m_SynchronizeScale: 0
 --- !u!114 &5160677449567694748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,29 +75,10 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 323073713709981635}
   - {fileID: 81022707095855881}
-  - {fileID: 5899503112787275309}
   - {fileID: 239519923887595858}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5899503112787275309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427942095007881744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
 --- !u!1001 &1428420263005229324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,12 +171,6 @@ PrefabInstance:
 --- !u!1 &1427942095007881744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1079085478447900, guid: 10fc24300fd6383438053fe6ea6e8c9e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1428420263005229324}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1423732300601150216 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4741449798212100, guid: 10fc24300fd6383438053fe6ea6e8c9e,
     type: 3}
   m_PrefabInstance: {fileID: 1428420263005229324}
   m_PrefabAsset: {fileID: 0}

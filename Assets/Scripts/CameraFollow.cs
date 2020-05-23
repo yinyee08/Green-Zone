@@ -62,38 +62,46 @@ public class CameraFollow : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient == true)
         {
-            playerObj1 = GameObject.Find("/Player1");
+            playerObj1 = GameObject.FindGameObjectWithTag("player1");
         }
         else
         {
-            playerObj1 = GameObject.Find("/Player2");
-        }
-        // compute position
-        if (offsetPositionSpace == Space.Self)
-        {
-
-            Vector3 desiredPosition = playerObj1.transform.TransformPoint(cameraOffSet);
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition;
-            transform.rotation = playerObj1.transform.rotation;
-        }
-        else
-        {
-          //  transform.position = playerObj1.transform.position + cameraOffSet;
-            Vector3 desiredPosition = playerObj1.transform.position + cameraOffSet;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition;
-            transform.rotation = playerObj1.transform.rotation;
+            playerObj1 = GameObject.FindGameObjectWithTag("player2");
         }
 
-        // compute rotation
-        if (lookAt)
+        if (playerObj1)
         {
-            transform.LookAt(playerObj1.transform);
+            // compute position
+            if (offsetPositionSpace == Space.Self)
+            {
+
+                Vector3 desiredPosition = playerObj1.transform.TransformPoint(cameraOffSet);
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+                transform.position = smoothedPosition;
+                transform.rotation = playerObj1.transform.rotation;
+            }
+            else
+            {
+                //  transform.position = playerObj1.transform.position + cameraOffSet;
+                Vector3 desiredPosition = playerObj1.transform.position + cameraOffSet;
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+                transform.position = smoothedPosition;
+                transform.rotation = playerObj1.transform.rotation;
+            }
+
+            // compute rotation
+            if (lookAt)
+            {
+                transform.LookAt(playerObj1.transform);
+            }
+            else
+            {
+                transform.rotation = playerObj1.transform.rotation;
+            }
         }
         else
         {
-            transform.rotation = playerObj1.transform.rotation;
+            return;
         }
     }
 

@@ -1897,6 +1897,7 @@ GameObject:
   - component: {fileID: 1658876064576050526}
   - component: {fileID: 1658876064576050496}
   - component: {fileID: 6951944231406353369}
+  - component: {fileID: -8553116448622740914}
   m_Layer: 0
   m_Name: Player2
   m_TagString: player2
@@ -2001,8 +2002,10 @@ MonoBehaviour:
   kickBomb: 0
   moveSpeed: 0.35
   currentFacingDirection: down
-  test: 
   networkBomb: {fileID: 6951944231406353369}
+  networkSpray: {fileID: -8553116448622740914}
+  disinfectant: 0
+  mask: 0
 --- !u!114 &1658876064576050525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,8 +2090,8 @@ MonoBehaviour:
   serializeMetallic: 0
   serializeTexture: 0
   textureFile: {fileID: 0}
-  health: 100
-  serializeHealth: 0
+  health: 3
+  serializeHealth: 1
   interaction: 15
   OnInteraction:
     m_PersistentCalls:
@@ -2125,6 +2128,25 @@ MonoBehaviour:
   euler: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   parent: {fileID: 0}
+--- !u!114 &-8553116448622740914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658876063441312091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943f3fea1d06dbf448516a14eadc32dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkObject: {fileID: 1283784608, guid: e0d97811913235744947d756eadb23fc, type: 3}
+  useTransform: 0
+  trans: {fileID: 1658876063441667451}
+  pos: {x: 0, y: 3, z: 0}
+  euler: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 1}
+  parent: {fileID: 1658876063441667451}
 --- !u!1 &1658876063441312093
 GameObject:
   m_ObjectHideFlags: 0

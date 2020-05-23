@@ -23,8 +23,6 @@ public class playerController : MonoBehaviour {
     private string player;
     private string playerName;
 
-    public string test = "";
-
     bool moveup = true;
     bool movedown = true;
     bool moveleft = true;
@@ -32,6 +30,10 @@ public class playerController : MonoBehaviour {
 
     private PhotonView pv;
     public NetworkObjectHandler networkBomb;
+    public NetworkObjectHandler networkSpray;
+    int health = 3;
+    public int disinfectant = 0;
+    public int mask = 0;
 
     // Use this for initialization
     void Start ()
@@ -46,16 +48,18 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
         if (pv.IsMine == true)
         {
             rotatin();
             movin();
             plantbom();
+            Spray();
 
-         //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
-         //   else if (transform.rotation.eulerAngles.y > 179 && transform.rotation.eulerAngles.y < 181) currentFacingDirection = "down";
-          //  else if (transform.rotation.eulerAngles.y > 89 && transform.rotation.eulerAngles.y < 91) currentFacingDirection = "right";
-          //  else if (transform.rotation.eulerAngles.y > 269 && transform.rotation.eulerAngles.y < 271) currentFacingDirection = "left";
+            //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
+            //   else if (transform.rotation.eulerAngles.y > 179 && transform.rotation.eulerAngles.y < 181) currentFacingDirection = "down";
+            //  else if (transform.rotation.eulerAngles.y > 89 && transform.rotation.eulerAngles.y < 91) currentFacingDirection = "right";
+            //  else if (transform.rotation.eulerAngles.y > 269 && transform.rotation.eulerAngles.y < 271) currentFacingDirection = "left";
         }
     }
 
@@ -98,6 +102,16 @@ public class playerController : MonoBehaviour {
         }
     }
 
+    void Spray()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            networkSpray.SpawnNetworkObject();
+            networkSpray.networkObject.transform.position = new Vector3(networkSpray.trans.position.x, networkSpray.trans.position.y + 5, networkSpray.trans.position.z);
+            Debug.Log(networkSpray.networkObject.transform.position);
+        }
+    }
+
     private bool noBomb(Vector3 location)
     {
         Collider[] objects = Physics.OverlapSphere(location, 0.1f);
@@ -114,14 +128,14 @@ public class playerController : MonoBehaviour {
 
         //if (IsFirstPerson == false)
         //{
-            if (playerName == "Player1")
+            if (player == "player1")
             {
                 if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
                 if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
                 if (Input.GetAxis("Horizontal") < 0) { rotationVector.y = 270; }
                 if (Input.GetAxis("Horizontal") > 0) { rotationVector.y = 90; }
             }
-            else if (playerName == "Player2")
+            else if (player == "player2")
             {
                 if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
                 if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
@@ -341,10 +355,26 @@ public class playerController : MonoBehaviour {
             Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), transform.GetComponent<Collider>());
         }
 
-      /*  if (other.gameObject.CompareTag("fragment"))
+        if (other.gameObject.CompareTag("enemy"))
         {
-            Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), transform.GetComponent<Collider>());
-        }*/
+            health -= 1;
+            gameObject.GetComponent<NetworkObject>().SetHealth(health);
+            
+        }
+
+        if (other.gameObject.tag=="disinfectant")
+        {
+            disinfectant += 1;
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "mask")
+        {
+            mask += 1;
+            other.gameObject.SetActive(false);
+        }
+
+
     }
 
     IEnumerator stopKick(Collision other)
@@ -359,5 +389,15 @@ public class playerController : MonoBehaviour {
         moveleft = true;
         moveright = true;
         StopCoroutine(stopKick(other));
+    }
+
+    public int GetMask()
+    {
+        return this.mask;
+    }
+
+    public int GetDisinfectant()
+    {
+        return this.disinfectant;
     }
 }

@@ -53,6 +53,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isRun
+  - Type: 4
+    SynchronizeType: 1
+    Name: isIdle
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -121,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  serializeColor: 1
+  serializeColor: 0
   serializeShininess: 0
   serializeMetallic: 0
   serializeTexture: 0
@@ -244,6 +247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8f7380da49034cd488ddff94b1ac35d1,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
