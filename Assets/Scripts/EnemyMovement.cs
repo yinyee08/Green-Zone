@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using SVR;
 
+
 public class EnemyMovement : MonoBehaviourPun, IPunObservable
 {
     GameObject player1;
@@ -35,7 +36,7 @@ public class EnemyMovement : MonoBehaviourPun, IPunObservable
         player2 = GameObject.Find("/Player2");
 
 
-
+        //Enemy Movement Control
         if (player1 != null)
         {
             Vector3 direction1 = player1.transform.position - this.transform.position;
