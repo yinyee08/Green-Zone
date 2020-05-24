@@ -1323,8 +1323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281110783
-  m_fontColor: {r: 1, g: 0.568147, b: 0.1745283, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2773,7 +2773,7 @@ MonoBehaviour:
     type: 3}
   useTransform: 0
   trans: {fileID: 0}
-  pos: {x: 9, y: 1.07, z: 9}
+  pos: {x: 0.5, y: 0, z: 0.5}
   euler: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 1}
   parent: {fileID: 0}

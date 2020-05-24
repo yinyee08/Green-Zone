@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8855A94A-3F0C-D510-E6FE-710FD9D99FC4}</ProjectGuid>
+    <ProjectGuid>{D8C91B19-950C-2246-6C8E-BC46EDA6E4DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -89,6 +89,20 @@
     <Compile Include="Assets\Scripts\PlayerPhoton.cs" />
     <Compile Include="Assets\Scripts\RoomListing.cs" />
     <Compile Include="Assets\Scripts\RoomListingsMenu.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\IntVector2.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\Maze.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeCell.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeCellAccessory.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeCellEdge.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeDirection.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeDoor.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazePassage.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeRoom.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeRoomSettings.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeStairs.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\MazeWall.cs" />
+    <Compile Include="Assets\Scripts\ScriptNewEnv\Player.cs" />
     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
     <Compile Include="Assets\Shared\Scripts\ProximityActivate.cs" />
@@ -125,6 +139,10 @@
     <Compile Include="Assets\SVR\Vuforia Augmented Reality\Demos\Scripts\TurboFanScript.cs" />
     <Compile Include="Assets\SVR\Vuforia Augmented Reality\Demos\Scripts\VRManager.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\Actions.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\CharacterPanel.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\CharacterViewer.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\PlayerController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
@@ -135,6 +153,7 @@
     <None Include="Assets\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
     <None Include="Assets\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
     <None Include="Assets\SVR\Demos\Models\Teleport\Shaders\Highlight.shader" />
+    <None Include="Assets\Yurowm\Shaders\SkinShader.shader" />
     <None Include="Assets\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -153,61 +172,61 @@
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -387,25 +406,25 @@
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="SVR">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/SVR/DLLs/SVR.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/SVR/DLLs/SVR.dll</HintPath>
     </Reference>
     <Reference Include="SVR_Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/SVR/DLLs/SVR_Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/SVR/DLLs/SVR_Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -764,47 +783,47 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{9B2B6393-5600-219F-3CFE-F8A7162EFB0B}</Project>
+      <Project>{65DC4C7D-EDA6-9D1D-2833-BACDA41F0CBF}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{718D03B8-636B-B2BE-DAAC-391E83839F21}</Project>
+      <Project>{4234C928-B2F9-B307-C13C-2CCC4D9BC25C}</Project>
       <Name>PunDemos.DemoHubEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{7066AF13-2BB9-7247-46AB-C6D401AD0DFD}</Project>
+      <Project>{534D1F92-75F0-6E20-FA36-44191D6CA6A9}</Project>
       <Name>PunDemos.DemoSlotcarEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{475D57DD-FE34-472B-7488-75F49A8B2DC0}</Project>
+      <Project>{73DBE87A-3CA2-57C2-913D-9652CB884436}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{B9C323E7-5ECE-0692-FC73-68402455A0B6}</Project>
+      <Project>{4BBCAE46-2BA8-9D6B-98D0-DDE540E02B1A}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{EF0E60BD-5928-F0AC-36E7-CCC8D21A14DF}</Project>
+      <Project>{FC8D42B0-017E-CDAB-2DEE-91D274AA5A6F}</Project>
       <Name>PhotonWebSocket</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{BD6CABBB-9F07-8123-4FE6-3BC74BF70A4C}</Project>
+      <Project>{085155A5-56FB-6912-FB97-70749EC907EF}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{169DD995-DC66-4A8F-7785-C6EA9BF73129}</Project>
+      <Project>{384D695F-CBF8-0D46-D649-BA32640C397C}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonChat.csproj">
-      <Project>{1A4E2396-643F-6161-EFAF-A38380EE822F}</Project>
+      <Project>{15ADABCD-B98C-ED7B-C875-86E822FC4CB0}</Project>
       <Name>PhotonChat</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{EF16D5AE-6431-05E0-8AF4-4AC8D996EEE5}</Project>
+      <Project>{01C4C7E7-A27E-E725-368A-C3DEE01358DE}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{283BE57F-1C5D-E6D0-1994-79A766E21AAA}</Project>
+      <Project>{6EC9B03F-A345-1C89-B822-58E3BE7E29C4}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
     </ProjectReference>
   </ItemGroup>

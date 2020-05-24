@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{283BE57F-1C5D-E6D0-1994-79A766E21AAA}</ProjectGuid>
+    <ProjectGuid>{6EC9B03F-A345-1C89-B822-58E3BE7E29C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PhotonUnityNetworking.Editor</AssemblyName>
@@ -79,19 +79,19 @@
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Editor\Views\PhotonTransformViewEditor.cs" />
     <None Include="Assets\Photon\PhotonUnityNetworking\Code\Editor\ReordableList\LICENSE.txt" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -283,37 +283,37 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="PackageManagerAssembly">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="SVR">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/SVR/DLLs/SVR.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/SVR/DLLs/SVR.dll</HintPath>
     </Reference>
     <Reference Include="SVR_Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Assets/SVR/DLLs/SVR_Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/SVR/DLLs/SVR_Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:/Downloads/Green Zone/Green Zone Latest/Green Zone/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -672,11 +672,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{BD6CABBB-9F07-8123-4FE6-3BC74BF70A4C}</Project>
+      <Project>{085155A5-56FB-6912-FB97-70749EC907EF}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{169DD995-DC66-4A8F-7785-C6EA9BF73129}</Project>
+      <Project>{384D695F-CBF8-0D46-D649-BA32640C397C}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
   </ItemGroup>
