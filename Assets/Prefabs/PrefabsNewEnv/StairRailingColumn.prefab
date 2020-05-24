@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 454766}
   m_Layer: 0
   m_Name: StairRailingColumn
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +31,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5125696684652189219
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328671646298341770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 1649456640008838202, guid: a49b9becb53665d43968c269afec0ecf, type: 3}
+--- !u!64 &2199872232690522619
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939422787609467551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 2914258465111318376, guid: a49b9becb53665d43968c269afec0ecf, type: 3}
+--- !u!64 &6236667495466007870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518371518613362004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -7261383736997351951, guid: a49b9becb53665d43968c269afec0ecf, type: 3}
 --- !u!1001 &4973785427867597754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +80,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 454766}
     m_Modifications:
+    - target: {fileID: -5957997936853717266, guid: a49b9becb53665d43968c269afec0ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a49b9becb53665d43968c269afec0ecf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,16 +140,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1497519136869647824, guid: a49b9becb53665d43968c269afec0ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a49b9becb53665d43968c269afec0ecf,
         type: 3}
       propertyPath: m_Name
       value: StairsRailingColumn001
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a49b9becb53665d43968c269afec0ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -887829964877635291, guid: a49b9becb53665d43968c269afec0ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a49b9becb53665d43968c269afec0ecf, type: 3}
 --- !u!4 &35144446351134880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: a49b9becb53665d43968c269afec0ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4973785427867597754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3939422787609467551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -887829964877635291, guid: a49b9becb53665d43968c269afec0ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4973785427867597754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3328671646298341770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1497519136869647824, guid: a49b9becb53665d43968c269afec0ecf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4973785427867597754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7518371518613362004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5957997936853717266, guid: a49b9becb53665d43968c269afec0ecf,
     type: 3}
   m_PrefabInstance: {fileID: 4973785427867597754}
   m_PrefabAsset: {fileID: 0}

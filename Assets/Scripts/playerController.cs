@@ -65,7 +65,7 @@ public class playerController : MonoBehaviour {
 
     void plantbom()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+       if (Input.GetKeyDown(KeyCode.Space))
             plant();
         /*if (playerName == "Player1")
         {
@@ -153,7 +153,7 @@ public class playerController : MonoBehaviour {
         {
             foreach (Collider coll in objects)
             {
-                if (coll.gameObject.CompareTag("wall") || coll.gameObject.CompareTag("DestructableObj"))
+                if (coll.gameObject.CompareTag("wall") || coll.gameObject.CompareTag("DestructableObj") || coll.gameObject.CompareTag("tree") ||  coll.gameObject.CompareTag("stairs"))
                 {
                     return true;
                 }

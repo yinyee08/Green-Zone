@@ -157,7 +157,6 @@ GameObject:
   - component: {fileID: 7790307545797352188}
   - component: {fileID: -4842707442990913739}
   - component: {fileID: 5043871126026440371}
-  - component: {fileID: -7090663676834667061}
   m_Layer: 0
   m_Name: Player1
   m_TagString: player1
@@ -202,7 +201,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7790307545795836034}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: be800db827351ef4bbb7d277af6df617, type: 3}
   m_Controller: {fileID: 9100000, guid: 565b921bfff36d546b8b9b856ab6232e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -408,21 +407,6 @@ MonoBehaviour:
   euler: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 1}
   parent: {fileID: 7790307545795732642}
---- !u!114 &-7090663676834667061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7790307545795836034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e2a910e2180a3418e50c94e65c0dc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnSmoothing: 15
-  dampingTime: 0.1
-  modelName: Player1
 --- !u!1 &7790307545795836036
 GameObject:
   m_ObjectHideFlags: 0

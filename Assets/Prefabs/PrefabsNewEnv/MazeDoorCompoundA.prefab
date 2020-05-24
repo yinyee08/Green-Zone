@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 481294}
   m_Layer: 0
   m_Name: Compound
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,10 @@ GameObject:
   - component: {fileID: 421680}
   - component: {fileID: 3362020}
   - component: {fileID: 2385884}
+  - component: {fileID: 7939231608380494929}
   m_Layer: 0
   m_Name: zdDoorFrameArch10x2
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +143,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7939231608380494929
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: f6367016f0cfb254cbf18ea2015ffb56, type: 3}
 --- !u!1 &134024
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +199,10 @@ GameObject:
   - component: {fileID: 496572}
   - component: {fileID: 3366372}
   - component: {fileID: 2314374}
+  - component: {fileID: 9000351056161815497}
   m_Layer: 0
   m_Name: SketchUp.002
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,6 +267,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9000351056161815497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: ed63863e1d429c6408dfb200168342be, type: 3}
 --- !u!1 &172026
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,9 +292,10 @@ GameObject:
   - component: {fileID: 463908}
   - component: {fileID: 3390268}
   - component: {fileID: 2351912}
+  - component: {fileID: 3315369959761608043}
   m_Layer: 0
   m_Name: SketchUp
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,6 +360,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3315369959761608043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: ed63863e1d429c6408dfb200168342be, type: 3}
 --- !u!1 &177046
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,9 +385,10 @@ GameObject:
   - component: {fileID: 488844}
   - component: {fileID: 3374578}
   - component: {fileID: 2398478}
+  - component: {fileID: 4885856556784375876}
   m_Layer: 0
   m_Name: SketchUp.001
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +453,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4885856556784375876
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: ed63863e1d429c6408dfb200168342be, type: 3}
 --- !u!1 &181252
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,9 +478,10 @@ GameObject:
   - component: {fileID: 452972}
   - component: {fileID: 3301932}
   - component: {fileID: 2311292}
+  - component: {fileID: 924506709343304841}
   m_Layer: 0
   m_Name: zdWallCap10x1
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,6 +546,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &924506709343304841
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 31bee01601b142846bde63b71a6a7fe1, type: 3}
 --- !u!1 &188046
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,9 +571,10 @@ GameObject:
   - component: {fileID: 402620}
   - component: {fileID: 3317176}
   - component: {fileID: 2367478}
+  - component: {fileID: 2971395040576582570}
   m_Layer: 0
   m_Name: SketchUp.003
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,6 +639,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2971395040576582570
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: ed63863e1d429c6408dfb200168342be, type: 3}
 --- !u!1 &191946
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +664,7 @@ GameObject:
   - component: {fileID: 425258}
   m_Layer: 0
   m_Name: zdDoorFrameCurb10x2
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,6 +698,7 @@ GameObject:
   - component: {fileID: 496960}
   - component: {fileID: 3304730}
   - component: {fileID: 2300578}
+  - component: {fileID: 1795357261578088896}
   m_Layer: 0
   m_Name: zdDoorArchRibbed
   m_TagString: Untagged
@@ -675,6 +766,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1795357261578088896
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 7e64e6c06a213774f8d2f54fa5bc5379, type: 3}
 --- !u!1 &199724
 GameObject:
   m_ObjectHideFlags: 0

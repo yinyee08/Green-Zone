@@ -16,6 +16,9 @@ TagManager:
   - Power
   - disinfectant
   - mask
+  - ground
+  - stairs
+  - tree
   layers:
   - Default
   - TransparentFX
