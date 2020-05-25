@@ -48,7 +48,7 @@ public class PhotonPlayer : MonoBehaviour
         {
             zombie.SpawnNetworkObject();
         }
-        if (PlayerPhoton.LocalPlayerInstance == null)
+      /* if (PlayerPhoton.LocalPlayerInstance == null)
         {
             if (PhotonNetwork.IsMasterClient == true)
             {
@@ -69,7 +69,7 @@ public class PhotonPlayer : MonoBehaviour
         else
         {
             Debug.Log("Avatar Exist");
-        }
+        }*/
 
 
     }

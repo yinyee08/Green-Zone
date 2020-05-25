@@ -98,6 +98,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: NormalBomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4063374128666712, guid: 10fc24300fd6383438053fe6ea6e8c9e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063374128666712, guid: 10fc24300fd6383438053fe6ea6e8c9e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063374128666712, guid: 10fc24300fd6383438053fe6ea6e8c9e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4741449798212100, guid: 10fc24300fd6383438053fe6ea6e8c9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.94
@@ -176,8 +188,18 @@ PrefabInstance:
         type: 3}
       propertyPath: bigExplosionPrefab
       value: 
-      objectReference: {fileID: 1121192042590650, guid: 434342a70de461445a72f3301d010af1,
+      objectReference: {fileID: 5129166752746989718, guid: 3ed8258f69b53ec4782c7e001b278636,
         type: 3}
+    - target: {fileID: 198380288872203302, guid: 10fc24300fd6383438053fe6ea6e8c9e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198380288872203302, guid: 10fc24300fd6383438053fe6ea6e8c9e,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10fc24300fd6383438053fe6ea6e8c9e, type: 3}
 --- !u!1 &1427942095007881744 stripped
