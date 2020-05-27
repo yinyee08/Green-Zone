@@ -32,7 +32,7 @@ public class Explosion : MonoBehaviour {
     [PunRPC]
     void ExplodeStart() { 
 		if(bomb == enabled) {
-          Invoke("Detonate",5); //5 seconds
+            Invoke("Detonate",5); //5 seconds
 		}
 	}
 
@@ -41,7 +41,7 @@ public class Explosion : MonoBehaviour {
 }
 
 	void Detonate() {
-
+        
         Instantiate(bigExplosionPrefab, transform.position, transform.rotation);
         //bigExplosionPrefab.SpawnNetworkObject();
 		Vector3 explosionPosition = bomb.transform.position;
@@ -59,6 +59,7 @@ public class Explosion : MonoBehaviour {
 		}
 
 		Destroy(gameObject);
+        //Destroy(bigExplosionPrefab);
 		
 	}
 

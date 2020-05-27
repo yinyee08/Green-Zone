@@ -83,6 +83,7 @@ public class playerController : MonoBehaviour {
 
     void plant()
     {
+        GameObject.Find("DestructPieces").GetComponent<AudioSource>().Play();
         var roundedPosition = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
 
         if (noBomb(roundedPosition))

@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GameSetup.cs" />
      <Compile Include="Assets\Scripts\LoginGame.cs" />
+     <Compile Include="Assets\Scripts\Mask.cs" />
      <Compile Include="Assets\Scripts\MasterGameInform.cs" />
      <Compile Include="Assets\Scripts\OnChangeColor.cs" />
      <Compile Include="Assets\Scripts\PhotonPlayer.cs" />

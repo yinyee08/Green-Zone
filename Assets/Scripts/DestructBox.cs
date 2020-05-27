@@ -6,7 +6,7 @@ using SVR;
 
 public class DestructBox : MonoBehaviour {
 
-	public float cubeSize = 0.2f;
+	public float cubeSize = 0.1f;
     public int cubesInRow = 5;
 
     float cubesPivotDistance;
@@ -19,6 +19,8 @@ public class DestructBox : MonoBehaviour {
     public Texture wood_texture;
     public GameObject destructPieces;
     private PhotonView pview;
+
+    private bool hasWeapon = false;
     
     // Use this for initialization
     void Start() {
@@ -32,8 +34,13 @@ public class DestructBox : MonoBehaviour {
     [PunRPC]
 	public void explode() {
         //make object disappear
-        gameObject.SetActive(false);
-        
+        //gameObject.SetActive(false);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        hasWeapon = true;
         //loop 3 times to create 5x5x5 pieces in x,y,z coordinates
         for (int x = 0; x < cubesInRow; x++) {
             for (int y = 0; y < cubesInRow; y++) {
@@ -76,6 +83,7 @@ public class DestructBox : MonoBehaviour {
         Renderer mRenderer = piece.GetComponent<Renderer>();
         mRenderer.material.SetTexture("_MainTex", wood_texture);
 
+        
         piece.GetComponent<Transform>().SetParent(destructPieces.transform);
         
     }
@@ -85,6 +93,22 @@ public class DestructBox : MonoBehaviour {
         foreach(Transform child in destructPieces.transform) {
             Destroy(child.gameObject);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
+
+    void Update() {
+        
+        if(hasWeapon) {
+
+            if(gameObject.transform.GetChild(0).gameObject.name == "s_mask" && gameObject.transform.GetChild(0).gameObject.GetComponent<Mask>().checkMaskCollision()) {
+                //Add script mask +1
+                Destroy(gameObject);
+                hasWeapon = false;
+            }
+            
+        }
+       
+    }
+
+       
 }
