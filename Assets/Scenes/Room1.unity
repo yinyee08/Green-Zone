@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e91cacca287c174b853f6a363c8f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene
+  sceneName: Scene2
   delayInSeconds: 0
   syncLoadScene: 1
   ARVR: 0
@@ -5800,7 +5800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4, y: -3.4999695}
+  m_AnchoredPosition: {x: 4, y: -3.499939}
   m_SizeDelta: {x: 0.00012207031, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716893364

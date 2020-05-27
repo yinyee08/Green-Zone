@@ -19,6 +19,7 @@ TagManager:
   - ground
   - stairs
   - tree
+  - MazeEnv
   layers:
   - Default
   - TransparentFX

@@ -2,35 +2,49 @@
 using UnityEngine;
 using System.Collections;
 using SVR;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
 	public Maze mazePrefab;
-
+	
 	//public Player playerPrefab;
 
-	private Maze mazeInstance;
-
+	//private Maze mazeInstance;
+	
 	//private Player playerInstance;
 
-	private void Start () {
-		StartCoroutine(BeginGame());
-	}
+	public float respawnAirDrop = 5.0f;
+	private float spawnAirDropTimer;
+
+	
     public NetworkObjectHandler networkObjecthandler1;
     public NetworkObjectHandler networkObjecthandler2;
-
-    /*private void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			RestartGame();
+    public NetworkObjectHandler networkObjecthandler3;
+    
+	private void Start () {
+		//StartCoroutine(BeginGame());
+		BeginGame ();
+	}
+	 
+    private void Update () {
+		if(spawnAirDropTimer < respawnAirDrop) {
+			spawnAirDropTimer += Time.deltaTime;
 		}
-	}*/
+		else {
+			SpawnAirDrop();
+		}
+	}
 
-    private IEnumerator BeginGame () {
+
+    private void BeginGame () {
+		
 		Camera.main.clearFlags = CameraClearFlags.Skybox;
 		Camera.main.rect = new Rect(0f, 0f, 1f, 1f);
-		mazeInstance = Instantiate(mazePrefab) as Maze;
-		yield return StartCoroutine(mazeInstance.Generate());
-        /*playerInstance = Instantiate(playerPrefab) as Player;
+		//mazeInstance = Instantiate(mazePrefab) as Maze;
+		//StartCoroutine(mazeInstance.Generate());
+        
+		/*playerInstance = Instantiate(playerPrefab) as Player;
 		//playerInstance.TeleportToCell(
 		//	mazeInstance.GetCell(mazeInstance.RandomCoordinates));
 		playerInstance.TeleportToCell(
@@ -39,14 +53,15 @@ public class GameManager : MonoBehaviour {
         {
             if (PhotonNetwork.IsMasterClient == true)
             {
-                networkObjecthandler1.SpawnNetworkObject();
-                PlayerPhoton.LocalPlayerInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position;
+				
+				networkObjecthandler1.SpawnNetworkObject();
+                //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
                 Debug.Log("Master Avatar1");
             }
             else
             {
                 networkObjecthandler2.SpawnNetworkObject();
-                PlayerPhoton.LocalPlayerInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position;
+				//PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
                 Debug.Log("Client Avatar1");
             }
 
@@ -62,6 +77,16 @@ public class GameManager : MonoBehaviour {
 		ambientColor.g = 0.5f;
 		ambientColor.b = 0.5f;
 		RenderSettings.ambientLight = ambientColor;
+
+	}
+
+	void SpawnAirDrop() {
+		if(spawnAirDropTimer < respawnAirDrop) return;
+		
+		//networkObjecthandler3.SpawnNetworkObject();
+        //BRS_AirDrop.AirDropInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position + new Vector3(0f,7f,0f);
+
+		spawnAirDropTimer = 0f;
 	}
 
 	/*private void RestartGame () {

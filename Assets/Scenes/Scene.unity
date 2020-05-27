@@ -2319,6 +2319,8 @@ GameObject:
   - component: {fileID: 1464554642}
   - component: {fileID: 1464554645}
   - component: {fileID: 1464554644}
+  - component: {fileID: 1464554646}
+  - component: {fileID: 1464554647}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -2339,8 +2341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 11400000, guid: 1d6d7ade00997cf428e19ac2ed8bac5e, type: 3}
+  respawnAirDrop: 5
   networkObjecthandler1: {fileID: 1464554645}
   networkObjecthandler2: {fileID: 1464554644}
+  networkObjecthandler3: {fileID: 1464554646}
+  networkObjecthandler4: {fileID: 1464554647}
 --- !u!4 &1464554643
 Transform:
   m_ObjectHideFlags: 0
@@ -2388,6 +2393,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkObject: {fileID: 7790307545797352189, guid: afcd2ba9c5a5794459ba6c142f3c7673,
+    type: 3}
+  useTransform: 0
+  trans: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  euler: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 1}
+  parent: {fileID: 0}
+--- !u!114 &1464554646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464554641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943f3fea1d06dbf448516a14eadc32dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkObject: {fileID: 8621419545055071529, guid: d849fd1265186a345a6838677f8f095a,
+    type: 3}
+  useTransform: 0
+  trans: {fileID: 0}
+  pos: {x: 0, y: 0, z: 0}
+  euler: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0, w: 1}
+  parent: {fileID: 0}
+--- !u!114 &1464554647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464554641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943f3fea1d06dbf448516a14eadc32dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkObject: {fileID: -4855564856732380361, guid: 1d6d7ade00997cf428e19ac2ed8bac5e,
     type: 3}
   useTransform: 0
   trans: {fileID: 0}

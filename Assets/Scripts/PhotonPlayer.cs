@@ -11,8 +11,8 @@ using TMPro;
 public class PhotonPlayer : MonoBehaviour
 {
  //   private PhotonView PV;
-    public NetworkObjectHandler networkObjecthandler1;
-    public NetworkObjectHandler networkObjecthandler2;
+    //public NetworkObjectHandler networkObjecthandler1;
+    //public NetworkObjectHandler networkObjecthandler2;
     public NetworkObjectHandler zombie;
 
     public TextMeshProUGUI timer;
@@ -46,7 +46,7 @@ public class PhotonPlayer : MonoBehaviour
         // if (PhotonNetwork.IsMasterClient == true)
         for (int i = 0; i < 2; i++)
         {
-            zombie.SpawnNetworkObject();
+            //zombie.SpawnNetworkObject();
         }
       /* if (PlayerPhoton.LocalPlayerInstance == null)
         {
