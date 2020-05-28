@@ -21,8 +21,12 @@ public class GameManager : MonoBehaviour {
     public NetworkObjectHandler networkObjecthandler1;
     public NetworkObjectHandler networkObjecthandler2;
     public NetworkObjectHandler networkObjecthandler3;
-    
-	private void Start () {
+    public NetworkObjectHandler zombieObject;
+
+    public Transform[] zombieSpawnPoints;
+    public int zombieNumber;
+
+    private void Start () {
 		//StartCoroutine(BeginGame());
 		BeginGame ();
 	}
@@ -57,6 +61,12 @@ public class GameManager : MonoBehaviour {
 				networkObjecthandler1.SpawnNetworkObject();
                 //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
                 Debug.Log("Master Avatar1");
+                for (int i = 0; i < zombieNumber; i++)
+                {
+                    int randomPoint = Random.Range(0, 10);
+                    zombieObject.pos = zombieSpawnPoints[randomPoint].position;
+                    zombieObject.SpawnNetworkObject();
+                }
             }
             else
             {

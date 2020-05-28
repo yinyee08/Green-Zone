@@ -10,7 +10,7 @@ using TMPro;
 
 public class PhotonPlayer : MonoBehaviour
 {
- //   private PhotonView PV;
+    //   private PhotonView PV;
     //public NetworkObjectHandler networkObjecthandler1;
     //public NetworkObjectHandler networkObjecthandler2;
     public NetworkObjectHandler zombie;
@@ -48,33 +48,33 @@ public class PhotonPlayer : MonoBehaviour
         {
             //zombie.SpawnNetworkObject();
         }
-      /* if (PlayerPhoton.LocalPlayerInstance == null)
-        {
-            if (PhotonNetwork.IsMasterClient == true)
-            {
-                networkObjecthandler1.SpawnNetworkObject();
-                networkObjecthandler1.name = "Player1";
-                Debug.Log("Master Avatar");
-            }
-            else
-            {
-                networkObjecthandler2.SpawnNetworkObject();
-                networkObjecthandler1.name = "Player2";
-                Debug.Log("Client Avatar");
-            }
+        /* if (PlayerPhoton.LocalPlayerInstance == null)
+          {
+              if (PhotonNetwork.IsMasterClient == true)
+              {
+                  networkObjecthandler1.SpawnNetworkObject();
+                  networkObjecthandler1.name = "Player1";
+                  Debug.Log("Master Avatar");
+              }
+              else
+              {
+                  networkObjecthandler2.SpawnNetworkObject();
+                  networkObjecthandler1.name = "Player2";
+                  Debug.Log("Client Avatar");
+              }
 
 
-          //  Debug.Log(GameSetup.GS.spawnPoints[spawnPicker].position + "," + spawnPicker + "SpawnAvatar");
-        }
-        else
-        {
-            Debug.Log("Avatar Exist");
-        }*/
+            //  Debug.Log(GameSetup.GS.spawnPoints[spawnPicker].position + "," + spawnPicker + "SpawnAvatar");
+          }
+          else
+          {
+              Debug.Log("Avatar Exist");
+          }*/
 
 
     }
-    
-    
+
+
     // Update is called once per frame
     public void Update()
     {
@@ -82,20 +82,20 @@ public class PhotonPlayer : MonoBehaviour
 
         if (PhotonNetwork.CurrentRoom != null)
         {
-            if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
 
-                    playerObj1 = GameObject.FindGameObjectWithTag("player1");
-                    playerObj2 = GameObject.FindGameObjectWithTag("player2");
+                playerObj1 = GameObject.FindGameObjectWithTag("player1");
+                playerObj2 = GameObject.FindGameObjectWithTag("player2");
 
-                if (playerObj1 != null && playerObj2 != null)
+                if (playerObj1 != null || playerObj2 != null)
                 {
                     health_value1 = playerObj1.GetComponent<NetworkObject>().GetHealth();
-                    health_value2 = playerObj2.GetComponent<NetworkObject>().GetHealth();
-                    mask_player1.text = playerObj1.GetComponent<playerController>().GetMask().ToString();
-                    mask_player2.text = playerObj2.GetComponent<playerController>().GetMask().ToString();
-                    disinfectant_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectant().ToString();
-                    disinfectant_player2.text = playerObj2.GetComponent<playerController>().GetDisinfectant().ToString();
+                    //      health_value2 = playerObj2.GetComponent<NetworkObject>().GetHealth();
+                    mask_player1.text = playerObj1.GetComponent<playerController>().GetMask();
+                    //    mask_player2.text = playerObj2.GetComponent<playerController>().GetMask();
+                    disinfectant_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectant();
+                    //   disinfectant_player2.text = playerObj2.GetComponent<playerController>().GetDisinfectant();
 
 
                     if (!System.Single.IsNaN(health_value1))
@@ -133,19 +133,19 @@ public class PhotonPlayer : MonoBehaviour
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
     {
-        if (health_value ==1)
+        if (health_value == 1)
         {
             health[0].SetActive(true);
             health[1].SetActive(false);
             health[2].SetActive(false);
         }
-        else if(health_value==2)
+        else if (health_value == 2)
         {
             health[0].SetActive(true);
             health[1].SetActive(true);
             health[2].SetActive(false);
         }
-        else if(health_value==3)
+        else if (health_value == 3)
         {
             health[0].SetActive(true);
             health[1].SetActive(true);

@@ -3,13 +3,14 @@ using System.Collections;
 using Photon.Pun;
 using SVR;
 
-public class playerController : MonoBehaviour {
+public class playerController : MonoBehaviour
+{
 
     Animator anim;
     public GameObject normalBomb;
     public GameObject spikeBomb;
     //public bool IsFirstPerson = false;
- 
+
     public int bombCount = 1;
     public int bombPlanted = 0;
     public int bombRange = 1;
@@ -32,21 +33,25 @@ public class playerController : MonoBehaviour {
     public NetworkObjectHandler networkBomb;
     public NetworkObjectHandler networkSpray;
     int health = 3;
-    public int disinfectant = 0;
-    public int mask = 0;
+    public string disinfectant;
+    public string mask;
+    float timeMask = 0f;
+    float timeDisinfectant = 0f;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         anim = GetComponent<Animator>();
         player = this.tag;
         playerName = this.name;
         pv = this.GetComponent<PhotonView>();
-        
+        mask = "0.00";
+        disinfectant = "0.00";
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
 
         if (pv.IsMine == true)
@@ -54,6 +59,8 @@ public class playerController : MonoBehaviour {
             rotatin();
             movin();
             plantbom();
+            timerMask();
+            timerDisinfectant();
             Spray();
 
             //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
@@ -65,7 +72,7 @@ public class playerController : MonoBehaviour {
 
     void plantbom()
     {
-       if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
             plant();
         /*if (playerName == "Player1")
         {
@@ -83,14 +90,13 @@ public class playerController : MonoBehaviour {
 
     void plant()
     {
-        GameObject.Find("DestructPieces").GetComponent<AudioSource>().Play();
         var roundedPosition = new Vector3(Mathf.Round(transform.position.x), transform.position.y, Mathf.Round(transform.position.z));
 
         if (noBomb(roundedPosition))
         {
             networkBomb.SpawnNetworkObject();
             //networkBomb.name = "NormalBomb";
-           // ((GameObject)Instantiate(normalBomb, roundedPosition, transform.rotation)).tag = "bomb";
+            // ((GameObject)Instantiate(normalBomb, roundedPosition, transform.rotation)).tag = "bomb";
             /*  bombPlanted += 1;
             if (bombType == "normal")
             {
@@ -105,11 +111,12 @@ public class playerController : MonoBehaviour {
 
     void Spray()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (this.gameObject.transform.Find("Hands/sanitizer").gameObject.activeSelf)
         {
-            networkSpray.SpawnNetworkObject();
-            networkSpray.networkObject.transform.position = new Vector3(networkSpray.trans.position.x, networkSpray.trans.position.y + 5, networkSpray.trans.position.z);
-            Debug.Log(networkSpray.networkObject.transform.position);
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                networkSpray.SpawnNetworkObject();
+             }
         }
     }
 
@@ -129,21 +136,21 @@ public class playerController : MonoBehaviour {
 
         //if (IsFirstPerson == false)
         //{
-            if (player == "player1")
-            {
-                if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
-                if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
-                if (Input.GetAxis("Horizontal") < 0) { rotationVector.y = 270; }
-                if (Input.GetAxis("Horizontal") > 0) { rotationVector.y = 90; }
-            }
-            else if (player == "player2")
-            {
-                if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
-                if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
-                if (Input.GetAxis("Horizontal") < 0) { rotationVector.y = 270; }
-                if (Input.GetAxis("Horizontal") > 0) { rotationVector.y = 90; }
-            }
-            transform.rotation = Quaternion.Euler(rotationVector);
+        if (player == "player1")
+        {
+            if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
+            if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
+            if (Input.GetAxis("Horizontal") < 0) { rotationVector.y = 270; }
+            if (Input.GetAxis("Horizontal") > 0) { rotationVector.y = 90; }
+        }
+        else if (player == "player2")
+        {
+            if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
+            if (Input.GetAxis("Vertical") > 0) { rotationVector.y = 0; }
+            if (Input.GetAxis("Horizontal") < 0) { rotationVector.y = 270; }
+            if (Input.GetAxis("Horizontal") > 0) { rotationVector.y = 90; }
+        }
+        transform.rotation = Quaternion.Euler(rotationVector);
     }
 
     private bool checkIfExistOn(Vector3 location, string data)
@@ -154,11 +161,11 @@ public class playerController : MonoBehaviour {
         {
             foreach (Collider coll in objects)
             {
-                if (coll.gameObject.CompareTag("wall") || coll.gameObject.CompareTag("DestructableObj") || coll.gameObject.CompareTag("tree") ||  coll.gameObject.CompareTag("stairs"))
+                if (coll.gameObject.CompareTag("wall") || coll.gameObject.CompareTag("DestructableObj") || coll.gameObject.CompareTag("tree") || coll.gameObject.CompareTag("stairs"))
                 {
                     return true;
                 }
-                
+
             }
         }
         else
@@ -199,7 +206,7 @@ public class playerController : MonoBehaviour {
         }
 
     }
-    
+
     void movin()
     {
         float moveVert = 0;
@@ -347,10 +354,10 @@ public class playerController : MonoBehaviour {
                         break;
                 }
 
-                StartCoroutine(stopKick(other));                                        
+                StartCoroutine(stopKick(other));
             }
         }
-         
+
         if (other.gameObject.CompareTag("player1") || other.gameObject.CompareTag("player2"))
         {
             Physics.IgnoreCollision(other.gameObject.GetComponent<Collider>(), transform.GetComponent<Collider>());
@@ -358,21 +365,31 @@ public class playerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("enemy"))
         {
-            health -= 1;
-            gameObject.GetComponent<NetworkObject>().SetHealth(health);
-            
+            if (!this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
+            {
+                health -= 1;
+
+                gameObject.GetComponent<NetworkObject>().SetHealth(health);
+            }
+
+
         }
 
-        if (other.gameObject.tag=="disinfectant")
+        if (other.gameObject.tag == "disinfectant")
         {
-            disinfectant += 1;
+            // disinfectant += 1;
+            timeDisinfectant += 30f;
             other.gameObject.SetActive(false);
+            this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(true);
+
         }
 
         if (other.gameObject.tag == "mask")
         {
-            mask += 1;
+            // mask += 1;
+            timeMask += 30f;
             other.gameObject.SetActive(false);
+            this.gameObject.transform.Find("Head/mask").gameObject.SetActive(true);
         }
 
 
@@ -392,13 +409,52 @@ public class playerController : MonoBehaviour {
         StopCoroutine(stopKick(other));
     }
 
-    public int GetMask()
+    public string GetMask()
     {
         return this.mask;
     }
 
-    public int GetDisinfectant()
+    public string GetDisinfectant()
     {
         return this.disinfectant;
+    }
+
+    public void timerMask()
+    {
+        if (this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
+        {
+
+            timeMask -= Time.deltaTime;
+            string minutes = Mathf.Floor(timeMask / 60).ToString("0");
+            string seconds = (timeMask % 60).ToString("00");
+
+            this.mask = minutes + ":" + seconds+"s";
+
+            if (timeMask < 0)
+            {
+                this.mask = "0.00";
+                this.gameObject.transform.Find("Head/mask").gameObject.SetActive(false);
+                // this.gameObject.GetComponent<BoxCollider>().enabled = true;
+            }
+        }
+    }
+
+    public void timerDisinfectant()
+    {
+        if (this.gameObject.transform.Find("Hands/sanitizer").gameObject.activeSelf)
+        {
+
+            timeDisinfectant -= Time.deltaTime;
+            string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
+            string seconds = (timeDisinfectant % 60).ToString("00");
+
+            this.disinfectant = minutes + ":" + seconds+"s";
+
+            if (timeDisinfectant < 0)
+            {
+                this.disinfectant = "0.00";
+                this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(false);
+            }
+        }
     }
 }

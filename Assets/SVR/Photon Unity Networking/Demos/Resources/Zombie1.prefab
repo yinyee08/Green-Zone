@@ -129,8 +129,8 @@ MonoBehaviour:
   serializeMetallic: 0
   serializeTexture: 0
   textureFile: {fileID: 0}
-  health: 100
-  serializeHealth: 0
+  health: 3
+  serializeHealth: 1
   interaction: 15
   OnInteraction:
     m_PersistentCalls:
