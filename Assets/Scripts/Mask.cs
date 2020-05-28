@@ -12,7 +12,7 @@ public class Mask : MonoBehaviour {
         
         if(other.gameObject.tag == "player1" || other.gameObject.tag == "player2") {
             collideWithPlayer = true;
-            //Debug.Log("player collides mask");
+            Debug.Log("player collides mask");
         }
        
     }

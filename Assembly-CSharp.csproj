@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\BRS_AirDrop.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\DestructBox.cs" />
+     <Compile Include="Assets\Scripts\Disinfectant.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GameSetup.cs" />

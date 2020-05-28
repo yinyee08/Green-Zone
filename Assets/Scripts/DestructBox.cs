@@ -38,9 +38,15 @@ public class DestructBox : MonoBehaviour {
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
 
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        gameObject.transform.GetChild(1).gameObject.SetActive(true);
-        hasWeapon = true;
+        if(gameObject.transform.childCount > 0) {
+            Debug.Log("Box has weapon");
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            hasWeapon = true;
+        }else{
+            Debug.Log("No weapon in box");
+        }
+        
         //loop 3 times to create 5x5x5 pieces in x,y,z coordinates
         for (int x = 0; x < cubesInRow; x++) {
             for (int y = 0; y < cubesInRow; y++) {
@@ -93,7 +99,8 @@ public class DestructBox : MonoBehaviour {
         foreach(Transform child in destructPieces.transform) {
             Destroy(child.gameObject);
         }
-        //Destroy(gameObject);
+
+        if(!hasWeapon) Destroy(gameObject);
     }
 
     void Update() {
@@ -102,6 +109,11 @@ public class DestructBox : MonoBehaviour {
 
             if(gameObject.transform.GetChild(0).gameObject.name == "s_mask" && gameObject.transform.GetChild(0).gameObject.GetComponent<Mask>().checkMaskCollision()) {
                 //Add script mask +1
+                Destroy(gameObject);
+                hasWeapon = false;
+
+            }else if(gameObject.transform.GetChild(0).gameObject.name == "s_sanitizer" && gameObject.transform.GetChild(0).gameObject.GetComponent<Disinfectant>().checkMaskCollision()) {
+                //Add script disinfectant +1
                 Destroy(gameObject);
                 hasWeapon = false;
             }
