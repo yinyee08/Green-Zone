@@ -13,7 +13,6 @@ public class PhotonPlayer : MonoBehaviour
     //   private PhotonView PV;
     //public NetworkObjectHandler networkObjecthandler1;
     //public NetworkObjectHandler networkObjecthandler2;
-    public NetworkObjectHandler zombie;
 
     public TextMeshProUGUI timer;
     float timeLeft = 120.0f;
@@ -31,6 +30,8 @@ public class PhotonPlayer : MonoBehaviour
     public Text mask_player1;
     public Text mask_player2;
 
+    private PhotonView pv;
+
     public void Awake()
     {
         PhotonNetwork.SerializationRate = 5;
@@ -41,61 +42,36 @@ public class PhotonPlayer : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-
-        //= Random.Range(0, GameSetup.GS.spawnPoints.Length);
-        // if (PhotonNetwork.IsMasterClient == true)
-        for (int i = 0; i < 2; i++)
-        {
-            //zombie.SpawnNetworkObject();
-        }
-        /* if (PlayerPhoton.LocalPlayerInstance == null)
-          {
-              if (PhotonNetwork.IsMasterClient == true)
-              {
-                  networkObjecthandler1.SpawnNetworkObject();
-                  networkObjecthandler1.name = "Player1";
-                  Debug.Log("Master Avatar");
-              }
-              else
-              {
-                  networkObjecthandler2.SpawnNetworkObject();
-                  networkObjecthandler1.name = "Player2";
-                  Debug.Log("Client Avatar");
-              }
-
-
-            //  Debug.Log(GameSetup.GS.spawnPoints[spawnPicker].position + "," + spawnPicker + "SpawnAvatar");
-          }
-          else
-          {
-              Debug.Log("Avatar Exist");
-          }*/
-
+        pv = GetComponent<PhotonView>();
 
     }
 
-
     // Update is called once per frame
+
+    /*  public void Update()
+      {
+          pv.RPC("UpdateInfo",RpcTarget.All);
+
+      }*/
+
     public void Update()
     {
-
-
         if (PhotonNetwork.CurrentRoom != null)
         {
-            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
             {
 
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
                 playerObj2 = GameObject.FindGameObjectWithTag("player2");
 
-                if (playerObj1 != null || playerObj2 != null)
+                if (playerObj1 != null && playerObj2 != null)
                 {
                     health_value1 = playerObj1.GetComponent<NetworkObject>().GetHealth();
-                    //      health_value2 = playerObj2.GetComponent<NetworkObject>().GetHealth();
-                    mask_player1.text = playerObj1.GetComponent<playerController>().GetMask();
-                    //    mask_player2.text = playerObj2.GetComponent<playerController>().GetMask();
-                    disinfectant_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectant();
-                    //   disinfectant_player2.text = playerObj2.GetComponent<playerController>().GetDisinfectant();
+                    health_value2 = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<NetworkObject>().GetHealth();
+                    mask_player1.text = playerObj1.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
+                    mask_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
+                    disinfectant_player1.text = playerObj1.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
+                    disinfectant_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
 
 
                     if (!System.Single.IsNaN(health_value1))
@@ -107,7 +83,6 @@ public class PhotonPlayer : MonoBehaviour
                     {
                         UpdatePlayerHealth(healthPlayer2, health_value2);
                     }
-
 
                     timeLeft -= Time.deltaTime;
                     string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
@@ -128,7 +103,6 @@ public class PhotonPlayer : MonoBehaviour
                 countdownTime = timer.text;
             }
         }
-
     }
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
@@ -158,5 +132,6 @@ public class PhotonPlayer : MonoBehaviour
             health[2].SetActive(false);
         }
     }
+
 
 }

@@ -59,8 +59,8 @@ public class playerController : MonoBehaviour
             rotatin();
             movin();
             plantbom();
-            timerMask();
-            timerDisinfectant();
+            pv.RPC("timerMask", RpcTarget.All);
+            pv.RPC("timerDisinfectant", RpcTarget.All);
             Spray();
 
             //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
@@ -116,7 +116,7 @@ public class playerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.X))
             {
                 networkSpray.SpawnNetworkObject();
-             }
+            }
         }
     }
 
@@ -419,6 +419,7 @@ public class playerController : MonoBehaviour
         return this.disinfectant;
     }
 
+    [PunRPC]
     public void timerMask()
     {
         if (this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
@@ -428,7 +429,7 @@ public class playerController : MonoBehaviour
             string minutes = Mathf.Floor(timeMask / 60).ToString("0");
             string seconds = (timeMask % 60).ToString("00");
 
-            this.mask = minutes + ":" + seconds+"s";
+            this.mask = minutes + ":" + seconds + "s";
 
             if (timeMask < 0)
             {
@@ -439,6 +440,7 @@ public class playerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void timerDisinfectant()
     {
         if (this.gameObject.transform.Find("Hands/sanitizer").gameObject.activeSelf)
@@ -448,7 +450,7 @@ public class playerController : MonoBehaviour
             string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
             string seconds = (timeDisinfectant % 60).ToString("00");
 
-            this.disinfectant = minutes + ":" + seconds+"s";
+            this.disinfectant = minutes + ":" + seconds + "s";
 
             if (timeDisinfectant < 0)
             {

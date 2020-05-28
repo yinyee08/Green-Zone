@@ -37,14 +37,14 @@ public class EnemyMovement : MonoBehaviourPun
                 Vector3 direction2 = player2.transform.position - this.transform.position;
                 float angle2 = Vector3.Angle(direction2, this.transform.forward);
 
-                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
+                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5)// && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
                 {
 
                     anim.SetBool("isIdle", false);
                     EnemyController(player1.transform, direction1);
                 }
 
-                else if (Vector2.Distance(player2.transform.position, this.transform.position) < 10 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
+                else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
                 {
                     anim.SetBool("isIdle", false);
                     EnemyController(player2.transform, direction2);
@@ -87,7 +87,7 @@ public class EnemyMovement : MonoBehaviourPun
         if (direction.magnitude >= 0.2)
 
         {
-            this.transform.Translate(0, 0, 0.02f);
+            this.transform.Translate(0, 0, 0.01f);
             anim.SetBool("isRun", true);
             anim.SetBool("isAttack", false);
         }
@@ -115,14 +115,24 @@ public class EnemyMovement : MonoBehaviourPun
             //  anim.SetBool("isRun", true);
             this.zombiehealth -= 1;
             this.gameObject.GetComponent<NetworkObject>().SetHealth(zombiehealth);
+            if (this.gameObject.GetComponent<NetworkObject>().GetHealth() <= 0f)
+            {
+                StartCoroutine(EnemyLose());
 
-            /*  if (this.gameObject.GetComponent<NetworkObject>().GetHealth <=0)
-              {
-
-              }*/
-            Debug.Log("Power Receive");
+            }
         }
     }
 
+
+    public IEnumerator EnemyLose()
+    {
+        this.anim.SetBool("isFallingBack", true);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRun", false);
+        anim.SetBool("isAttack", false);
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
+    }
 
 }
