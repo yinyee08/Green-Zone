@@ -6,16 +6,15 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using SVR;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PhotonPlayer : MonoBehaviour
 {
     //   private PhotonView PV;
-    //public NetworkObjectHandler networkObjecthandler1;
-    //public NetworkObjectHandler networkObjecthandler2;
+    public NetworkObjectHandler zombie;
 
-    public TextMeshProUGUI timer;
-    float timeLeft = 120.0f;
+    public Text timer;
+    float timeLeft = 180.0f;
     string countdownTime = "0.00";
 
     public GameObject[] healthPlayer1;
@@ -24,13 +23,16 @@ public class PhotonPlayer : MonoBehaviour
     GameObject playerObj2;
     float health_value1;
     float health_value2;
+    public static float score_earn = 0f;
 
     public Text disinfectant_player1;
     public Text disinfectant_player2;
     public Text mask_player1;
     public Text mask_player2;
+    public Text score;
 
-    private PhotonView pv;
+    public GameObject winObject;
+    public GameObject loseObject;
 
     public void Awake()
     {
@@ -42,20 +44,15 @@ public class PhotonPlayer : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        pv = GetComponent<PhotonView>();
 
     }
 
+
     // Update is called once per frame
-
-    /*  public void Update()
-      {
-          pv.RPC("UpdateInfo",RpcTarget.All);
-
-      }*/
-
     public void Update()
     {
+
+
         if (PhotonNetwork.CurrentRoom != null)
         {
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
@@ -63,38 +60,57 @@ public class PhotonPlayer : MonoBehaviour
 
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
                 playerObj2 = GameObject.FindGameObjectWithTag("player2");
+                score.text = score_earn.ToString();
 
-                if (playerObj1 != null && playerObj2 != null)
+                if (playerObj1 != null)
                 {
-                    health_value1 = playerObj1.GetComponent<NetworkObject>().GetHealth();
-                    health_value2 = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<NetworkObject>().GetHealth();
-                    mask_player1.text = playerObj1.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
-                    mask_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
-                    disinfectant_player1.text = playerObj1.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
-                    disinfectant_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
 
+                    health_value1 = playerObj1.GetComponent<NetworkObject>().GetHealth();
+                    mask_player1.text = playerObj1.GetComponent<playerController>().GetMask().ToString();
+                    disinfectant_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectant().ToString();
+                    
 
                     if (!System.Single.IsNaN(health_value1))
                     {
                         UpdatePlayerHealth(healthPlayer1, health_value1);
                     }
+                }
+
+                if (playerObj2 != null)
+                {
+                    health_value2 = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<NetworkObject>().GetHealth();
+                    mask_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
+                    disinfectant_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
 
                     if (!System.Single.IsNaN(health_value2))
                     {
                         UpdatePlayerHealth(healthPlayer2, health_value2);
                     }
+                }
 
-                    timeLeft -= Time.deltaTime;
-                    string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
-                    string seconds = (timeLeft % 60).ToString("00");
 
-                    timer.text = minutes + ":" + seconds;
-                    countdownTime = timer.text;
-                    if (timeLeft < 0)
+                timeLeft -= Time.deltaTime;
+                string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
+                string seconds = (timeLeft % 60).ToString("00");
+
+                timer.text = minutes + ":" + seconds;
+                countdownTime = timer.text;
+                if (timeLeft <= 0.00f)
+                {
+
+                    //  timer.text = "UP !";
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
                     {
-                        timer.text = "UP !";
+                        //win game
+                        winObject.SetActive(true);
+                    }
+                    else
+                    {
+                        //lose game
+                        loseObject.SetActive(true);
                     }
                 }
+
 
             }
             else
@@ -103,6 +119,7 @@ public class PhotonPlayer : MonoBehaviour
                 countdownTime = timer.text;
             }
         }
+
     }
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
@@ -131,6 +148,11 @@ public class PhotonPlayer : MonoBehaviour
             health[1].SetActive(false);
             health[2].SetActive(false);
         }
+    }
+
+    public void GotoLeaderboard()
+    {
+        SceneManager.LoadScene("Scene");
     }
 
 

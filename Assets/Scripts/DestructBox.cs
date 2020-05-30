@@ -4,9 +4,10 @@ using UnityEngine;
 using Photon.Pun;
 using SVR;
 
-public class DestructBox : MonoBehaviour {
+public class DestructBox : MonoBehaviour
+{
 
-	public float cubeSize = 0.1f;
+    public float cubeSize = 0.2f;
     public int cubesInRow = 5;
 
     float cubesPivotDistance;
@@ -20,10 +21,9 @@ public class DestructBox : MonoBehaviour {
     public GameObject destructPieces;
     private PhotonView pview;
 
-    private bool hasWeapon = false;
-    
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         pview = GetComponent<PhotonView>();
         //calculate pivot distance
         cubesPivotDistance = cubeSize * cubesInRow / 2;
@@ -31,27 +31,21 @@ public class DestructBox : MonoBehaviour {
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
 
     }
-    [PunRPC]
-	public void explode() {
+    //  [PunRPC]
+    public void explode()
+    {
         //make object disappear
-        //gameObject.SetActive(false);
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.SetActive(false);
 
-        if(gameObject.transform.childCount > 0) {
-            Debug.Log("Box has weapon");
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            hasWeapon = true;
-        }else{
-            Debug.Log("No weapon in box");
-        }
-        
         //loop 3 times to create 5x5x5 pieces in x,y,z coordinates
-        for (int x = 0; x < cubesInRow; x++) {
-            for (int y = 0; y < cubesInRow; y++) {
-                for (int z = 0; z < cubesInRow; z++) {
-                    pview.RPC("createPiece", RpcTarget.All, x, y, z);
+        for (int x = 0; x < cubesInRow; x++)
+        {
+            for (int y = 0; y < cubesInRow; y++)
+            {
+                for (int z = 0; z < cubesInRow; z++)
+                {
+                    // pview.RPC("createPiece", RpcTarget.All, x, y, z);
+                    createPiece(x, y, z);
                 }
             }
         }
@@ -61,20 +55,23 @@ public class DestructBox : MonoBehaviour {
         //get colliders in that position and radius
         Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
         //add explosion force to all colliders in that overlap sphere
-        foreach (Collider hit in colliders) {
+        foreach (Collider hit in colliders)
+        {
             //get rigidbody from collider object
             Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb != null) {
+            if (rb != null)
+            {
                 //add explosion force to this body with given parameters
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
             }
         }
 
         Invoke("DestroyPieces", 2);
-        
+
     }
-    [PunRPC]
-    void createPiece(int x, int y, int z) {
+    //  [PunRPC]
+    void createPiece(int x, int y, int z)
+    {
         //create piece
         GameObject piece;
         piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -89,38 +86,17 @@ public class DestructBox : MonoBehaviour {
         Renderer mRenderer = piece.GetComponent<Renderer>();
         mRenderer.material.SetTexture("_MainTex", wood_texture);
 
-        
         piece.GetComponent<Transform>().SetParent(destructPieces.transform);
-        
+
     }
 
-    void DestroyPieces() {
-        
-        foreach(Transform child in destructPieces.transform) {
+    void DestroyPieces()
+    {
+
+        foreach (Transform child in destructPieces.transform)
+        {
             Destroy(child.gameObject);
         }
-
-        if(!hasWeapon) Destroy(gameObject);
+        Destroy(gameObject);
     }
-
-    void Update() {
-        
-        if(hasWeapon) {
-
-            if(gameObject.transform.GetChild(0).gameObject.name == "s_mask" && gameObject.transform.GetChild(0).gameObject.GetComponent<Mask>().checkMaskCollision()) {
-                //Add script mask +1
-                Destroy(gameObject);
-                hasWeapon = false;
-
-            }else if(gameObject.transform.GetChild(0).gameObject.name == "s_sanitizer" && gameObject.transform.GetChild(0).gameObject.GetComponent<Disinfectant>().checkMaskCollision()) {
-                //Add script disinfectant +1
-                Destroy(gameObject);
-                hasWeapon = false;
-            }
-            
-        }
-       
-    }
-
-       
 }
