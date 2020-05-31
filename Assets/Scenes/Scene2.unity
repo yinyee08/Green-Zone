@@ -282,8 +282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Over
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 5720998639199464806, guid: 64c20ad7b68c38746b646a4a46e37671,
+  m_fontAsset: {fileID: 11400000, guid: 506b6c402218d1143af0657825810ff4, type: 2}
+  m_sharedMaterial: {fileID: 5720998639199464806, guid: 506b6c402218d1143af0657825810ff4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a04d072856f163b469e101453d80c54a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b0e3fd9c459a1c47bd431e008b94997, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1369,7 +1369,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1e92b5dd6745d4844869f86e529ecc7a, type: 3}
+    m_Font: {fileID: 12800000, guid: 495c9e2a934bcc640a8d7427b13cb680, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
@@ -2251,18 +2251,17 @@ MonoBehaviour:
   zombie: {fileID: 965709489}
   timer: {fileID: 1883645654}
   healthPlayer1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 370362104}
+  - {fileID: 353006522}
+  - {fileID: 1434575401}
   healthPlayer2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  disinfectant_player1: {fileID: 0}
-  disinfectant_player2: {fileID: 0}
-  mask_player1: {fileID: 0}
-  mask_player2: {fileID: 0}
+  - {fileID: 290813191}
+  - {fileID: 118119352}
+  - {fileID: 2061764537}
+  disinfectant_player1: {fileID: 1569131458}
+  disinfectant_player2: {fileID: 1121039551}
+  mask_player1: {fileID: 1190281388}
+  mask_player2: {fileID: 1809633511}
   score: {fileID: 1840341481}
   winObject: {fileID: 53614563}
   loseObject: {fileID: 747554392}
@@ -3202,7 +3201,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1e92b5dd6745d4844869f86e529ecc7a, type: 3}
+    m_Font: {fileID: 12800000, guid: 495c9e2a934bcc640a8d7427b13cb680, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
@@ -3870,8 +3869,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You Win ! '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 5720998639199464806, guid: b27e56d87ac34744682c69421edcd4be,
+  m_fontAsset: {fileID: 11400000, guid: 4150a8cd0a4473e4d93704131edb798d, type: 2}
+  m_sharedMaterial: {fileID: 5720998639199464806, guid: 4150a8cd0a4473e4d93704131edb798d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3949,7 +3948,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
