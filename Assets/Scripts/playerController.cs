@@ -38,6 +38,8 @@ public class playerController : MonoBehaviour
     float timeMask = 0f;
     float timeDisinfectant = 0f;
 
+    GameObject[] door;
+
     // Use this for initialization
     void Start()
     {
@@ -58,6 +60,7 @@ public class playerController : MonoBehaviour
         {
             rotatin();
             movin();
+            onEnterDoor();
             plantbom();
             pv.RPC("timerMask", RpcTarget.All);
             pv.RPC("timerDisinfectant", RpcTarget.All);
@@ -392,6 +395,12 @@ public class playerController : MonoBehaviour
             this.gameObject.transform.Find("Head/mask").gameObject.SetActive(true);
         }
 
+        /*     if (other.gameObject.tag == "door")
+             {
+                 Debug.Log("Collide Door");
+                 this.gameObject.transform.Translate(0,0,0.8f);
+             }*/
+
 
     }
 
@@ -458,5 +467,21 @@ public class playerController : MonoBehaviour
                 this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(false);
             }
         }
+    }
+
+    public void onEnterDoor()
+    {
+
+       /* door = GameObject.FindGameObjectsWithTag("door");
+
+        foreach (GameObject dor in door)
+        {
+            float angle = Vector3.Angle(dor.transform.position, this.transform.forward);
+            if ((Vector2.Distance(this.transform.position, dor.transform.position) < 0.45f) && angle < 10)
+            {
+                Debug.Log("Collide Door");
+                this.gameObject.transform.Translate(0, 0, 0.1f);
+            }
+        }*/
     }
 }

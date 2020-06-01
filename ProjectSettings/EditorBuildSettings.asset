@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Room1.unity
     guid: d6efe368858ba7b489a7997e81e9957d
   - enabled: 0
-    path: Assets/Scenes/Room.unity
-    guid: 203ea999c5914e443aeaf0a40f302d81
-  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 163adec682b5ccd4c8dbb7766c20f3fb
   - enabled: 0
@@ -20,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2.unity
     guid: f75ea510248ef1740b30f3869a8f87c6
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: f01be26ab9c6e9b4daf8f238302c9ece
   m_configObjects: {}

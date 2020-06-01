@@ -3,6 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Networking;
+
+[System.Serializable]
+public class TeamPlayer
+{
+    public string message;
+    public int status;
+}
+
+[System.Serializable]
+public class Score
+{
+    public string metric_id;
+    public string metric_name;
+    public string metric_type;
+    public int value;
+
+}
+[System.Serializable]
+public class MessageData
+{
+    public string alias;
+    public string id;
+    public string first_name;
+    public string last_name;
+    public string created;
+    public Score[] score;
+}
+[System.Serializable]
+public class Data
+{
+    public MessageData message;
+    public int status;
+}
+
 
 public class LoginGame : MonoBehaviour
 {
@@ -16,6 +51,7 @@ public class LoginGame : MonoBehaviour
     public Text logTeam;
 
     public static string teamName;
+    public static string teamalias;
 
     void Start()
     {
@@ -51,6 +87,7 @@ public class LoginGame : MonoBehaviour
         if (!string.IsNullOrEmpty(signInTeam.text))
         {
             teamName = signInTeam.text;
+            StartCoroutine(GetData2(teamName));
             logTeam.text = "Hi, " + signInTeam.text;
             showLoggedIn();
         }
@@ -61,8 +98,97 @@ public class LoginGame : MonoBehaviour
         if (!string.IsNullOrEmpty(signUpTeam.text))
         {
             teamName = signUpTeam.text;
-            logTeam.text = "Hi, "+ signUpTeam.text;
+            StartCoroutine(GetData2(teamName));
+            logTeam.text = "Hi, " + signUpTeam.text;
             showLoggedIn();
         }
     }
+
+    IEnumerator Upload(string team_alias, string team_name)
+    {
+        string team_id = team_name.Substring(0, 1) + "01";
+
+        using (UnityWebRequest www = UnityWebRequest.Get("http://api.tenenet.net/createPlayer?token=7bfe7669d12cb3f64681d71d4bb54a22&alias=" + team_alias + "&id=" + team_id + "&fname=" + team_name + "&lname=" + team_name))
+        {
+            yield return www.SendWebRequest();
+            var data = www.downloadHandler.text;
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                TeamPlayer result = JsonUtility.FromJson<TeamPlayer>(data);
+                Debug.Log(data);
+                if (result.status == 1)
+                {
+                    teamalias = team_alias;
+                    Debug.Log("Player created!");
+                }
+                else
+                {
+                    Debug.Log("Player Fail created!");
+                }
+
+
+
+
+            }
+        }
+    }
+
+    IEnumerator GetData2(string team_alias)
+    {
+
+        string team_name = team_alias;
+        team_alias = team_alias + "001";
+
+        using (UnityWebRequest www = UnityWebRequest.Get("http://api.tenenet.net/getPlayer?token=7bfe7669d12cb3f64681d71d4bb54a22&alias=" + team_alias))
+        {
+            yield return www.SendWebRequest();
+            var data = www.downloadHandler.text;
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+
+                Data players = JsonUtility.FromJson<Data>(data);
+
+                if (players.status == 0)
+                {
+
+                    StartCoroutine(Upload(team_alias, team_name));
+                    Debug.Log("Prepare to create user");
+                }
+                else
+                {
+                    teamalias = team_alias;
+                    Debug.Log("Player Existed");
+
+                }
+
+            }
+        }
+    }
+
 }
+
+/*
+ {"message":
+    {"first_name":"supercell\u200b",
+     "last_name":"supercell\u200b",
+     "alias":"supercell\u200b001",
+     "id":"s01",
+     "created":"2020-06-01 07:55:06",
+     "score":[
+        {"metric_id":"easy_score","metric_name":"easy_score","metric_type":"point","value":"0"},
+        {"metric_id":"medium_score","metric_name":"medium_score","metric_type":"point","value":"0"},
+        {"metric_id":"hard_score","metric_name":"hard_score","metric_type":"point","value":"0"},
+        {"metric_id":"bonus_score","metric_name":"bonus_score","metric_type":"point","value":"0"}
+        ]},
+      "status":"1"}
+ */

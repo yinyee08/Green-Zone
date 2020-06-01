@@ -84,6 +84,8 @@
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameSetup.cs" />
+    <Compile Include="Assets\Scripts\GetTeamAlias.cs" />
+    <Compile Include="Assets\Scripts\LeaderBoard.cs" />
     <Compile Include="Assets\Scripts\LoginGame.cs" />
     <Compile Include="Assets\Scripts\Mask.cs" />
     <Compile Include="Assets\Scripts\MasterGameInform.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\Scripts\PlayerPhoton.cs" />
     <Compile Include="Assets\Scripts\RoomListing.cs" />
     <Compile Include="Assets\Scripts\RoomListingsMenu.cs" />
+    <Compile Include="Assets\Scripts\ScoreDataList.cs" />
     <Compile Include="Assets\Scripts\ScriptNewEnv\GameManager.cs" />
     <Compile Include="Assets\Scripts\ScriptNewEnv\IntVector2.cs" />
     <Compile Include="Assets\Scripts\ScriptNewEnv\Maze.cs" />
