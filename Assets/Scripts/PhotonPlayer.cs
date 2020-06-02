@@ -34,6 +34,8 @@ public class PhotonPlayer : MonoBehaviour
 
     public GameObject winObject;
     public GameObject loseObject;
+    public AudioSource musicStart;
+    public AudioSource zombieSpawnSound;
 
     public void Awake()
     {
@@ -89,31 +91,7 @@ public class PhotonPlayer : MonoBehaviour
                     }
                 }
 
-
-                timeLeft -= Time.deltaTime;
-                string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
-                string seconds = (timeLeft % 60).ToString("00");
-
-                timer.text = minutes + ":" + seconds;
-                countdownTime = timer.text;
-                if (timeLeft <= 0.00f)
-                {
-
-                    //  timer.text = "UP !";
-                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
-                    {
-                        //win game
-                        winObject.SetActive(true);
-                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
-                    }
-                    else
-                    {
-                        //lose game
-                        loseObject.SetActive(true);
-                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
-                    }
-                }
-
+                StartCoroutine(StartGame());
 
             }
             else
@@ -250,6 +228,36 @@ public class PhotonPlayer : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    public IEnumerator StartGame()
+    {
+        zombieSpawnSound.Play();
+        yield return new WaitForSeconds(3f);
+        musicStart.Play();
+        timeLeft -= Time.deltaTime;
+        string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
+        string seconds = (timeLeft % 60).ToString("00");
+
+        timer.text = minutes + ":" + seconds;
+        countdownTime = timer.text;
+        if (timeLeft <= 0.00f)
+        {
+
+            //  timer.text = "UP !";
+            if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+            {
+                //win game
+                winObject.SetActive(true);
+                StartCoroutine(CheckScoreData(int.Parse(score.text)));
+            }
+            else
+            {
+                //lose game
+                loseObject.SetActive(true);
+                StartCoroutine(CheckScoreData(int.Parse(score.text)));
+            }
         }
     }
 

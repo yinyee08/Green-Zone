@@ -27,8 +27,8 @@ public class Explosion : MonoBehaviour
 
     void InvokeEXplosion()
     {
-        // pv.RPC("ExplodeStart", RpcTarget.All);
-        ExplodeStart();
+         pv.RPC("ExplodeStart", RpcTarget.All);
+        //ExplodeStart();
     }
 
     [PunRPC]
@@ -61,8 +61,8 @@ public class Explosion : MonoBehaviour
                 rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
                 if (rb.gameObject.tag == "DestructableObj")
                 {
-                    //rb.gameObject.GetComponent<DestructBox>().GetComponent<PhotonView>().RPC("explode", RpcTarget.All);
-                    rb.gameObject.GetComponent<DestructBox>().explode();
+                    rb.gameObject.GetComponent<DestructBox>().GetComponent<PhotonView>().RPC("explode", RpcTarget.All);
+                    //rb.gameObject.GetComponent<DestructBox>().explode();
                 }
             }
         }

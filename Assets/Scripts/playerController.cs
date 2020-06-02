@@ -39,6 +39,8 @@ public class playerController : MonoBehaviour
     float timeDisinfectant = 0f;
 
     GameObject[] door;
+    public AudioSource bombSound;
+    public AudioSource spraySound;
 
     // Use this for initialization
     void Start()
@@ -98,6 +100,7 @@ public class playerController : MonoBehaviour
         if (noBomb(roundedPosition))
         {
             networkBomb.SpawnNetworkObject();
+            bombSound.Play();
             //networkBomb.name = "NormalBomb";
             // ((GameObject)Instantiate(normalBomb, roundedPosition, transform.rotation)).tag = "bomb";
             /*  bombPlanted += 1;
@@ -119,6 +122,7 @@ public class playerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.X))
             {
                 networkSpray.SpawnNetworkObject();
+                spraySound.Play();
             }
         }
     }
