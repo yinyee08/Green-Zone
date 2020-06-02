@@ -259,6 +259,7 @@ public class PhotonPlayer : MonoBehaviour
                 StartCoroutine(CheckScoreData(int.Parse(score.text)));
             }
         }
+
     }
 
 }

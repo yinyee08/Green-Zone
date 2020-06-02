@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour {
 	public float respawnAirDrop = 5.0f;
 	private float spawnAirDropTimer;
 
-	
+    public float respawnZombie = 100.0f;
+    private float spawnZombieTimer;
+
     public NetworkObjectHandler networkObjecthandler1;
     public NetworkObjectHandler networkObjecthandler2;
     public NetworkObjectHandler networkObjecthandler3;
@@ -38,7 +40,16 @@ public class GameManager : MonoBehaviour {
 		else {
 			SpawnAirDrop();
 		}
-	}
+
+        if (spawnZombieTimer < respawnZombie)
+        {
+            spawnZombieTimer += Time.deltaTime;
+        }
+        else
+        {
+            SpawnZombie();
+        }
+    }
 
 
     private void BeginGame () {
@@ -61,12 +72,7 @@ public class GameManager : MonoBehaviour {
 				networkObjecthandler1.SpawnNetworkObject();
                 //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
                 Debug.Log("Master Avatar1");
-                for (int i = 0; i < zombieNumber; i++)
-                {
-                    int randomPoint = Random.Range(0, 10);
-                    zombieObject.pos = zombieSpawnPoints[randomPoint].position;
-                    zombieObject.SpawnNetworkObject();
-                }
+                SpawnZombie();
             }
             else
             {
@@ -98,6 +104,19 @@ public class GameManager : MonoBehaviour {
 
 		spawnAirDropTimer = 0f;
 	}
+
+    void SpawnZombie()
+    {
+        if (spawnZombieTimer < respawnZombie) return;
+
+        for (int i = 0; i < zombieNumber; i++)
+        {
+            int randomPoint = Random.Range(0, 10);
+            zombieObject.pos = zombieSpawnPoints[randomPoint].position;
+            zombieObject.SpawnNetworkObject();
+        }
+        spawnZombieTimer = 0f;
+    }
 
 	/*private void RestartGame () {
 		StopAllCoroutines();

@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\PlayerPhoton.cs" />
     <Compile Include="Assets\Scripts\RoomListing.cs" />
     <Compile Include="Assets\Scripts\RoomListingsMenu.cs" />
+    <Compile Include="Assets\Scripts\SceneUI.cs" />
     <Compile Include="Assets\Scripts\ScoreDataList.cs" />
     <Compile Include="Assets\Scripts\ScriptNewEnv\GameManager.cs" />
     <Compile Include="Assets\Scripts\ScriptNewEnv\IntVector2.cs" />
