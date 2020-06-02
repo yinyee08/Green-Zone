@@ -62,7 +62,6 @@ public class playerController : MonoBehaviour
         {
             rotatin();
             movin();
-            onEnterDoor();
             plantbom();
             pv.RPC("timerMask", RpcTarget.All);
             pv.RPC("timerDisinfectant", RpcTarget.All);
@@ -473,19 +472,4 @@ public class playerController : MonoBehaviour
         }
     }
 
-    public void onEnterDoor()
-    {
-
-       /* door = GameObject.FindGameObjectsWithTag("door");
-
-        foreach (GameObject dor in door)
-        {
-            float angle = Vector3.Angle(dor.transform.position, this.transform.forward);
-            if ((Vector2.Distance(this.transform.position, dor.transform.position) < 0.45f) && angle < 10)
-            {
-                Debug.Log("Collide Door");
-                this.gameObject.transform.Translate(0, 0, 0.1f);
-            }
-        }*/
-    }
 }

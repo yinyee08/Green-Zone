@@ -4,12 +4,6 @@ using System.Collections.Generic;
 
 public class Maze : MonoBehaviour
 {
-	//public static Maze MazeEnvInstance;
-
-    // private void Awake()
-    // {
-    //     MazeEnvInstance = this;
-    //  }
 
 	public IntVector2 size;
 
@@ -33,13 +27,6 @@ public class Maze : MonoBehaviour
 	public MazeWall[] wallPrefabs;
 
 	private MazeCell[,] cells;
-
-	// public void Awake()
-    // {
-	// 	MazeEnvInstance = this;
-	// 	MazeEnvInstance.StartCoroutine(Generate());
-
-	// }
 
 	public IntVector2 RandomCoordinates {
 		get {

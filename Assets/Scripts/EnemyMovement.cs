@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviourPun
 
     Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
     Vector3 currentDir;
-    int zombiehealth=3;
+    int zombiehealth = 3;
     Vector3 direction1;
     Vector3 direction2;
 
@@ -36,49 +36,49 @@ public class EnemyMovement : MonoBehaviourPun
 
         if (PhotonNetwork.CurrentRoom != null)
         {
-                if (player1 != null)
+            if (player1 != null)
+            {
+                Vector3 direction1 = player1.transform.position - this.transform.position;
+                float angle1 = Vector3.Angle(direction1, this.transform.forward);
+
+                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
                 {
-                    Vector3 direction1 = player1.transform.position - this.transform.position;
-                    float angle1 = Vector3.Angle(direction1, this.transform.forward);
-
-                    if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
-                    {
-                        anim.SetBool("isIdle", false);
-                        EnemyController(player1.transform, direction1);
-                    }
-                    else
-                    {
-                        anim.SetBool("isIdle", false);
-                        this.transform.Translate(0, 0, 0.01f);
-                        anim.SetBool("isWalking", true);
-                        anim.SetBool("isRun", false);
-                        anim.SetBool("isAttack", false);
-                    }
+                    anim.SetBool("isIdle", false);
+                    EnemyController(player1.transform, direction1);
                 }
-
-                if (player2 != null)
+                else
                 {
-                    Vector3 direction2 = player2.transform.position - this.transform.position;
-                    float angle2 = Vector3.Angle(direction2, this.transform.forward);
-
-                    //else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
-
-                    if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)
-
-                    {
-                        anim.SetBool("isIdle", false);
-                        EnemyController(player2.transform, direction2);
-                    }
-                    else
-                    {
-                        anim.SetBool("isIdle", false);
-                        this.transform.Translate(0, 0, 0.01f);
-                        anim.SetBool("isWalking", true);
-                        anim.SetBool("isRun", false);
-                        anim.SetBool("isAttack", false);
-                    }
+                    anim.SetBool("isIdle", false);
+                    this.transform.Translate(0, 0, 0.01f);
+                    anim.SetBool("isWalking", true);
+                    anim.SetBool("isRun", false);
+                    anim.SetBool("isAttack", false);
                 }
-            
+            }
+
+            if (player2 != null)
+            {
+                Vector3 direction2 = player2.transform.position - this.transform.position;
+                float angle2 = Vector3.Angle(direction2, this.transform.forward);
+
+                //else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
+
+                if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)
+
+                {
+                    anim.SetBool("isIdle", false);
+                    EnemyController(player2.transform, direction2);
+                }
+                else
+                {
+                    anim.SetBool("isIdle", false);
+                    this.transform.Translate(0, 0, 0.01f);
+                    anim.SetBool("isWalking", true);
+                    anim.SetBool("isRun", false);
+                    anim.SetBool("isAttack", false);
+                }
+            }
+
         }
         else
         {
@@ -86,14 +86,14 @@ public class EnemyMovement : MonoBehaviourPun
             anim.SetBool("isWalking", false);
             anim.SetBool("isRun", false);
             anim.SetBool("isAttack", false);
-        
+
         }
 
-            /*  anim.SetBool("isIdle", false);
-              this.transform.Translate(0, 0, 0.01f);
-              anim.SetBool("isWalking", true);
-              anim.SetBool("isRun", false);
-              anim.SetBool("isAttack", false);*/
+        /*  anim.SetBool("isIdle", false);
+          this.transform.Translate(0, 0, 0.01f);
+          anim.SetBool("isWalking", true);
+          anim.SetBool("isRun", false);
+          anim.SetBool("isAttack", false);*/
 
     }
 
@@ -162,7 +162,7 @@ public class EnemyMovement : MonoBehaviourPun
         anim.SetBool("isAttack", false);
         yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
-        
+
     }
 
 

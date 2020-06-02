@@ -131,9 +131,9 @@ public class PhotonPlayer : MonoBehaviour
         }
     }
 
-    public void GotoLeaderboard()
+    public void GotoBadgeScene()
     {
-        SceneManager.LoadScene("Leaderboard");
+        SceneManager.LoadScene("Badge");
     }
 
     IEnumerator RemoveScore(int score, string levelId, int playerhighscore)

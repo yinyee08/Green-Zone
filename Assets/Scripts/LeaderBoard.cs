@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ScoreData
@@ -33,7 +34,7 @@ public class LeaderBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-          StartCoroutine(GetLeaderBoard("easy"));
+        StartCoroutine(GetLeaderBoard("easy"));
     }
 
     IEnumerator GetPlayerRecord(string alias, string badge, int total)
@@ -55,7 +56,7 @@ public class LeaderBoard : MonoBehaviour
                 {
                     if (team.message.score[j].metric_id == badge)
                     {
-                       // Debug.Log(team.message.first_name+" hi "+ team.message.score[j].value);
+                        // Debug.Log(team.message.first_name+" hi "+ team.message.score[j].value);
                         scorelist.Add(new ScoreDataList(team.message.first_name, team.message.score[j].value));
                         if (scorelist.Count == total)
                         {
@@ -121,10 +122,10 @@ public class LeaderBoard : MonoBehaviour
         {
             if (i < 9)
             {
-                 //   Debug.Log("List : " + (i + 1) + " : " + scorelist[i].teamname + " : " + scorelist[i].teamscore);
-                    panel.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = scorelist[i].teamname;
-                    panel.transform.GetChild(i).gameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = (scorelist[i].teamscore).ToString();
-                
+                //   Debug.Log("List : " + (i + 1) + " : " + scorelist[i].teamname + " : " + scorelist[i].teamscore);
+                panel.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = scorelist[i].teamname;
+                panel.transform.GetChild(i).gameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = (scorelist[i].teamscore).ToString();
+
             }
         }
 
@@ -169,5 +170,10 @@ public class LeaderBoard : MonoBehaviour
     {
         scorelist.Clear();
         StartCoroutine(GetLeaderBoard("hard"));
+    }
+
+    public void gotoHomeScene()
+    {
+        SceneManager.LoadScene("Room1");
     }
 }
