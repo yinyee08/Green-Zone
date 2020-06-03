@@ -41,6 +41,8 @@ public class playerController : MonoBehaviour
     GameObject[] door;
     public AudioSource bombSound;
     public AudioSource spraySound;
+    public AudioSource attackSound;
+    public AudioSource collectSound;
 
     // Use this for initialization
     void Start()
@@ -374,7 +376,7 @@ public class playerController : MonoBehaviour
             if (!this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
             {
                 health -= 1;
-
+                attackSound.Play();
                 gameObject.GetComponent<NetworkObject>().SetHealth(health);
             }
 
@@ -385,6 +387,7 @@ public class playerController : MonoBehaviour
         {
             // disinfectant += 1;
             timeDisinfectant += 30f;
+            collectSound.Play();
             other.gameObject.SetActive(false);
             this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(true);
 
@@ -394,6 +397,7 @@ public class playerController : MonoBehaviour
         {
             // mask += 1;
             timeMask += 30f;
+            collectSound.Play();
             other.gameObject.SetActive(false);
             this.gameObject.transform.Find("Head/mask").gameObject.SetActive(true);
         }

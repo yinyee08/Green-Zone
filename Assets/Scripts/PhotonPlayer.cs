@@ -15,7 +15,7 @@ public class PhotonPlayer : MonoBehaviour
     public NetworkObjectHandler zombie;
 
     public Text timer;
-    float timeLeft = 180.0f;
+    float timeLeft = 300.0f;
     string countdownTime = "0.00";
 
     public GameObject[] healthPlayer1;
@@ -47,7 +47,7 @@ public class PhotonPlayer : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-
+        musicStart.Play();
     }
 
 
@@ -90,8 +90,28 @@ public class PhotonPlayer : MonoBehaviour
                         UpdatePlayerHealth(healthPlayer2, health_value2);
                     }
                 }
+                timeLeft -= Time.deltaTime;
+                string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
+                string seconds = (timeLeft % 60).ToString("00");
+                timer.text = minutes + ":" + seconds;
+                countdownTime = timer.text;
+                if (timeLeft <= 0.00f)
+                {
 
-                StartCoroutine(StartGame());
+                    //  timer.text = "UP !";
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+                    {
+                        //win game
+                        winObject.SetActive(true);
+                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
+                    }
+                    else
+                    {
+                        //lose game
+                        loseObject.SetActive(true);
+                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
+                    }
+                }
 
             }
             else
@@ -236,29 +256,6 @@ public class PhotonPlayer : MonoBehaviour
         zombieSpawnSound.Play();
         yield return new WaitForSeconds(3f);
         musicStart.Play();
-        timeLeft -= Time.deltaTime;
-        string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
-        string seconds = (timeLeft % 60).ToString("00");
-
-        timer.text = minutes + ":" + seconds;
-        countdownTime = timer.text;
-        if (timeLeft <= 0.00f)
-        {
-
-            //  timer.text = "UP !";
-            if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
-            {
-                //win game
-                winObject.SetActive(true);
-                StartCoroutine(CheckScoreData(int.Parse(score.text)));
-            }
-            else
-            {
-                //lose game
-                loseObject.SetActive(true);
-                StartCoroutine(CheckScoreData(int.Parse(score.text)));
-            }
-        }
 
     }
 

@@ -9915,7 +9915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 972789296}
   respawnAirDrop: 5
-  respawnZombie: 60
+  respawnZombie: 100
   networkObjecthandler1: {fileID: 1464554645}
   networkObjecthandler2: {fileID: 1464554644}
   networkObjecthandler3: {fileID: 1464554646}

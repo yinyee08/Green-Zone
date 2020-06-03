@@ -17,7 +17,6 @@ public class EnemyMovement : MonoBehaviourPun
     Vector3 direction1;
     Vector3 direction2;
 
-    public AudioSource attackSound;
     public AudioSource deathSound;
 
     // Start is called before the first frame update
@@ -119,7 +118,6 @@ public class EnemyMovement : MonoBehaviourPun
         {
             anim.SetBool("isRun", false);
             anim.SetBool("isAttack", true);
-            attackSound.Play();
         }
     }
 

@@ -271,6 +271,18 @@
     <Reference Include="websocket-sharp">
       <HintPath>D:/Documents/GitHub/Green-Zone/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Google.IOSResolver_v1.2.135.0">
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.135.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver_v1.2.135.0">
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.135.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl_v1.2.135.0">
+      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.135.0.dll</HintPath>
+    </Reference>
     <Reference Include="SVR">
       <HintPath>D:/Documents/GitHub/Green-Zone/Assets/SVR/DLLs/SVR.dll</HintPath>
     </Reference>
@@ -291,18 +303,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/Documents/GitHub/Green-Zone/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandler">
-      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.JarResolver_v1.2.135.0">
-      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.135.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.IOSResolver_v1.2.135.0">
-      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.135.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandlerImpl_v1.2.135.0">
-      <HintPath>D:/Documents/GitHub/Green-Zone/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.135.0.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity2019/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
