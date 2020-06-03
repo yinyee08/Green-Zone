@@ -44,6 +44,11 @@ public class playerController : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource collectSound;
 
+    private float speed = 2f;
+    private Rigidbody rb;
+    public float jumpForce = 3.5f;
+    private bool playerIsOnGrounded = true;
+
     // Use this for initialization
     void Start()
     {
@@ -53,6 +58,7 @@ public class playerController : MonoBehaviour
         pv = this.GetComponent<PhotonView>();
         mask = "0.00";
         disinfectant = "0.00";
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -68,6 +74,7 @@ public class playerController : MonoBehaviour
             pv.RPC("timerMask", RpcTarget.All);
             pv.RPC("timerDisinfectant", RpcTarget.All);
             Spray();
+            jumping();
 
             //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
             //   else if (transform.rotation.eulerAngles.y > 179 && transform.rotation.eulerAngles.y < 181) currentFacingDirection = "down";
@@ -407,7 +414,7 @@ public class playerController : MonoBehaviour
                  Debug.Log("Collide Door");
                  this.gameObject.transform.Translate(0,0,0.8f);
              }*/
-
+        playerIsOnGrounded = true;
 
     }
 
@@ -475,5 +482,15 @@ public class playerController : MonoBehaviour
             }
         }
     }
+
+    void jumping()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && playerIsOnGrounded)
+        {
+            rb.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
+            playerIsOnGrounded = false;
+        }
+    }
+    
 
 }

@@ -228,7 +228,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &7790307545797352183
 BoxCollider:
@@ -273,6 +273,7 @@ MonoBehaviour:
   spraySound: {fileID: -4304733522687065721}
   attackSound: {fileID: 782303869273051578}
   collectSound: {fileID: -5214434038057180622}
+  jumpForce: 3.5
 --- !u!114 &7790307545797352177
 MonoBehaviour:
   m_ObjectHideFlags: 0

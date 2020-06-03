@@ -11,4 +11,9 @@ public class BackHomeScene : MonoBehaviour
         Debug.Log("sceneBuildIndex to load: " + sceneNumber);
         SceneManager.LoadScene(sceneNumber);
     }
+
+    public void loadMenuScene()
+    {
+        SceneManager.LoadScene("Room1");
+    } 
 }

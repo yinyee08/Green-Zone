@@ -78,6 +78,12 @@ public class GameManager : MonoBehaviour
                 networkObjecthandler1.SpawnNetworkObject();
                 //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
                 Debug.Log("Master Avatar1");
+                for (int i = 0; i < zombieNumber; i++)
+                {
+                    int randomPoint = Random.Range(0, 10);
+                    zombieObject.pos = zombieSpawnPoints[randomPoint].position;
+                    zombieObject.SpawnNetworkObject();
+                }
                 SpawnZombie();
             }
             else
