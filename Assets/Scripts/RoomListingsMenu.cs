@@ -17,13 +17,11 @@ public class RoomListingsMenu : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.InLobby)
         {
             PhotonNetwork.JoinLobby();
-            Debug.Log("Yes Lobby");
         }
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        Debug.Log("hi2");
         foreach (RoomInfo info in roomList)
         {
             RoomListing listing = Instantiate(_roomlisting, _content);

@@ -16,8 +16,7 @@ public class RoomListing : MonoBehaviour
     public Button JoinRoomButton;
 
     private string roomName;
-    private string teamname;
-
+    
     public void Start()
     {
         JoinRoomButton.onClick.AddListener(() =>
@@ -34,9 +33,9 @@ public class RoomListing : MonoBehaviour
 
     public void SetRoomInfo(RoomInfo roominfo)
     {
-        teamname = LoginGame.teamName;
+       // teamname = LoginGame.teamName;
         roomName = roominfo.Name;
-        _text.text = roominfo.MaxPlayers +" , "+roominfo.Name + ", "+teamname;
+        _text.text = roominfo.Name + ", " + roominfo.MaxPlayers + " Players, " + GetLevelName.levelname.ToUpper();
     }
 
 

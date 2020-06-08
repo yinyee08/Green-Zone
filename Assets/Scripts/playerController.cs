@@ -66,7 +66,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
 
-        if (pv.IsMine == true)
+        if (pv.IsMine == true && this.gameObject.GetComponent<NetworkObject>().GetHealth()>0)
         {
             rotatin();
             movin();

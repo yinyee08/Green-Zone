@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Room1.unity
     guid: 77266cb18186a4b48836b45c5ae002f7
   - enabled: 1
-    path: Assets/Scenes/Scene2.unity
+    path: Assets/Scenes/Scene1.unity
     guid: f75ea510248ef1740b30f3869a8f87c6
   - enabled: 1
-    path: Assets/Scenes/Scene.unity
-    guid: 9ed10987cc3ff0749a4ac934edc88100
+    path: Assets/Scenes/Scene2.unity
+    guid: 02a3a980ee54418429c03604d45d9423
   - enabled: 1
     path: Assets/Scenes/Badge.unity
     guid: c380a67ee6ee17240bb051b127592bcb

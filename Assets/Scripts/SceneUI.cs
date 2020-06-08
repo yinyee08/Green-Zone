@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 using SVR;
 
 public class SceneUI : MonoBehaviour
@@ -17,18 +18,29 @@ public class SceneUI : MonoBehaviour
     public void goEasyLevelScene()
     {
         levelUI = "easy";
-        sceneLoad.sceneName = "Scene2";
+        sceneLoad.sceneName = "Scene1";
     }
 
     public void goMediumLevelScene()
     {
         levelUI = "medium";
-        sceneLoad.sceneName = "Scene";
+        sceneLoad.sceneName = "Scene2";
     }
 
     public void goHardLevelScene()
     {
         levelUI = "hard";
-        sceneLoad.sceneName = "Scene";
+        sceneLoad.sceneName = "Scene3";
+    }
+
+    public void ReConnected()
+    {
+
+
+       /* if (!PhotonNetwork.ConnectUsingSettings())
+        {
+            PhotonNetwork.ConnectUsingSettings();
+
+        }*/
     }
 }

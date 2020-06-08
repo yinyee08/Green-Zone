@@ -15,8 +15,9 @@ public class PhotonPlayer : MonoBehaviour
     public NetworkObjectHandler zombie;
 
     public Text timer;
-    float timeLeft = 300.0f;
+    public float timeLeft = 10.0f;
     string countdownTime = "0.00";
+    float gametime = 3f;
 
     public GameObject[] healthPlayer1;
     public GameObject[] healthPlayer2;
@@ -31,11 +32,15 @@ public class PhotonPlayer : MonoBehaviour
     public Text mask_player1;
     public Text mask_player2;
     public Text score;
+    public Text playersInfo;
+    public Text gameCountdown;
 
     public GameObject winObject;
     public GameObject loseObject;
     public AudioSource musicStart;
     public AudioSource zombieSpawnSound;
+
+    bool start = true;
 
     public void Awake()
     {
@@ -47,7 +52,7 @@ public class PhotonPlayer : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        musicStart.Play();
+         musicStart.Play();
     }
 
 
@@ -58,9 +63,11 @@ public class PhotonPlayer : MonoBehaviour
 
         if (PhotonNetwork.CurrentRoom != null)
         {
+
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
             {
-
+                
+                StartCoroutine("startGame");
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
                 playerObj2 = GameObject.FindGameObjectWithTag("player2");
                 score.text = score_earn.ToString();
@@ -90,6 +97,7 @@ public class PhotonPlayer : MonoBehaviour
                         UpdatePlayerHealth(healthPlayer2, health_value2);
                     }
                 }
+
                 timeLeft -= Time.deltaTime;
                 string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
                 string seconds = (timeLeft % 60).ToString("00");
@@ -113,15 +121,46 @@ public class PhotonPlayer : MonoBehaviour
                     }
                 }
 
+                if (timeLeft > 0.00f && playerObj1.GetComponent<NetworkObject>().GetHealth() <= 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() <= 0)
+                {
+                    winObject.SetActive(true);
+                    StartCoroutine(CheckScoreData(int.Parse(score.text)));
+                }
+
             }
             else
             {
                 timer.text = "--:--";
                 countdownTime = timer.text;
             }
+
         }
 
+
     }
+
+    public IEnumerator startGame()
+    {
+        while (start == true)
+        {
+            playersInfo.text = "Players Ready !";
+           // gameCountdown.text = "3";
+           // yield return new WaitForSeconds(1f);
+           // gameCountdown.text = "2";
+           // yield return new WaitForSeconds(1f);
+          // gameCountdown.text = "1";
+          //  yield return new WaitForSeconds(1f);
+            gameCountdown.text = "Game Start";
+            yield return new WaitForSeconds(2f);
+            playersInfo.text = "";
+            gameCountdown.text = "";
+            start = false;
+        }   
+       
+        
+    }
+
+    
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
     {
@@ -153,7 +192,7 @@ public class PhotonPlayer : MonoBehaviour
 
     public void GotoBadgeScene()
     {
-        SceneManager.LoadScene("Badge");
+            SceneManager.LoadScene("Badge");    
     }
 
     IEnumerator RemoveScore(int score, string levelId, int playerhighscore)
@@ -193,7 +232,7 @@ public class PhotonPlayer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Success Set Score");
+               // Debug.Log("Success Set Score");
                 Debug.Log(data);
 
             }
@@ -237,12 +276,12 @@ public class PhotonPlayer : MonoBehaviour
                     {
                         if (player.message.score[i].value < score)
                         {
-                            Debug.Log("SetScore");
+                           // Debug.Log("SetScore");
                             StartCoroutine(RemoveScore(player.message.score[i].value, curLevelId, score));
                         }
                         else
                         {
-                            Debug.Log("NotSetScore");
+                           // Debug.Log("NotSetScore");
                         }
                     }
                 }
@@ -251,12 +290,5 @@ public class PhotonPlayer : MonoBehaviour
         }
     }
 
-    public IEnumerator StartGame()
-    {
-        zombieSpawnSound.Play();
-        yield return new WaitForSeconds(3f);
-        musicStart.Play();
-
-    }
 
 }
