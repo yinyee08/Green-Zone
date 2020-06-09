@@ -128,9 +128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeSize: 0.05
   cubesInRow: 5
-  explosionForce: 50
-  explosionRadius: 4
-  explosionUpward: 0.4
+  explosionForce: 20
+  explosionRadius: 0.5
+  explosionUpward: 0.2
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
   destructPieces: {fileID: 0}
 --- !u!114 &8490053376221714384

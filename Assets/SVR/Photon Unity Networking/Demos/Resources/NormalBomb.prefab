@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
       propertyPath: power
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
@@ -190,6 +190,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5129166752746989718, guid: 3ed8258f69b53ec4782c7e001b278636,
         type: 3}
+    - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
+        type: 3}
+      propertyPath: radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
+        type: 3}
+      propertyPath: upforce
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 198380288872203302, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
       propertyPath: InitialModule.startSize.scalar

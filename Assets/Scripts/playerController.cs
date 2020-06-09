@@ -137,7 +137,7 @@ public class playerController : MonoBehaviour
 
         if (this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.V))
             {
                 networkHighSpray.SpawnNetworkObject();
                 spraySound.Play();

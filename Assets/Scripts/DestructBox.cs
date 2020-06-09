@@ -33,7 +33,7 @@ public class DestructBox : MonoBehaviour
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
 
     }
-    [PunRPC]
+   // [PunRPC]
     public void explode()
     {
         //make object disappear
@@ -60,7 +60,8 @@ public class DestructBox : MonoBehaviour
             {
                 for (int z = 0; z < cubesInRow; z++)
                 {
-                    pview.RPC("createPiece", RpcTarget.All, x, y, z);
+                    // pview.RPC("createPiece", RpcTarget.All, x, y, z);
+                    createPiece(x, y, z);
                 }
             }
         }
@@ -84,7 +85,7 @@ public class DestructBox : MonoBehaviour
         Invoke("DestroyPieces", 2);
 
     }
-    [PunRPC]
+   // [PunRPC]
     void createPiece(int x, int y, int z)
     {
         //create piece

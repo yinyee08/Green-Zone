@@ -26,10 +26,11 @@ public class Explosion : MonoBehaviour {
 
     void InvokeEXplosion()
     {
-        pv.RPC("ExplodeStart", RpcTarget.All);
+       // pv.RPC("ExplodeStart", RpcTarget.All);
+        ExplodeStart();
     }
 
-    [PunRPC]
+    //[PunRPC]
     void ExplodeStart() { 
 		if(bomb == enabled) {
           Invoke("Detonate",5); //5 seconds
@@ -52,9 +53,10 @@ public class Explosion : MonoBehaviour {
             if (rb != null) {
 				rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
 				if(rb.gameObject.tag == "DestructableObj") {
-					rb.gameObject.GetComponent<DestructBox>().GetComponent<PhotonView>().RPC("explode", RpcTarget.All);
+                    //rb.gameObject.GetComponent<DestructBox>().GetComponent<PhotonView>().RPC("explode", RpcTarget.All);
+                    rb.gameObject.GetComponent<DestructBox>().explode();
 
-				}
+                }
 			}
 		}
 

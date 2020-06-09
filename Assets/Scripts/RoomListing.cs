@@ -35,7 +35,7 @@ public class RoomListing : MonoBehaviour
     {
        // teamname = LoginGame.teamName;
         roomName = roominfo.Name;
-        _text.text = roominfo.Name + ", " + roominfo.MaxPlayers + " Players, " + GetLevelName.levelname.ToUpper();
+        _text.text = roominfo.Name + ", " + roominfo.MaxPlayers + " Players";
     }
 
 
