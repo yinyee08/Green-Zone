@@ -8,8 +8,11 @@ public class BRS_AirDrop : MonoBehaviour
 
 	public GameObject GroundDetection;
 	public GameObject Canopy;
-	//public Light DropLight;
-	//public ParticleSystem Smoke;
+	public GameObject Parcel;
+	public GameObject disinfectantPowerUp;
+	//public GameObject respawnEffect;
+	public GameObject PointLight;
+	public GameObject Smoke;
 	private Rigidbody AirDropRB;
 	private bool Landed = false;
 
@@ -43,6 +46,9 @@ public class BRS_AirDrop : MonoBehaviour
 			DropHasLanded ();
 			Landed = false;
 		}
+		if(disinfectantPowerUp.GetComponent<Disinfectant>().checkDisinfectCollision()){
+			Destroy(gameObject);
+		}
 	}
 
 	void DropHasLanded()
@@ -54,5 +60,25 @@ public class BRS_AirDrop : MonoBehaviour
 		//Destroy (GroundDetection);
 		Destroy (Canopy);
 		
+	}
+
+	void OnCollisionEnter(Collision other) {
+        
+        if(other.gameObject.tag == "player1" || other.gameObject.tag == "player2") {
+			PointLight.SetActive(true);
+			Smoke.SetActive(true);
+            Invoke("ShowPowerUp", 4);			
+        }
+       
+    }
+
+	void ShowPowerUp() {
+		Destroy(PointLight);
+		Destroy(Smoke);
+		Destroy(Parcel);
+		Destroy(GroundDetection);
+		AirDropRB.useGravity = false;
+		disinfectantPowerUp.SetActive(true);
+		//respawnEffect.SetActive(true);
 	}
 }

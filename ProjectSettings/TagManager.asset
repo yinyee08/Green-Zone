@@ -20,6 +20,7 @@ TagManager:
   - stairs
   - tree
   - MazeEnv
+  - disinfectantPower
   layers:
   - Default
   - TransparentFX

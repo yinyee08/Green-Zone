@@ -17,7 +17,7 @@ public class Disinfectant : MonoBehaviour {
        
     }
 
-    public bool checkMaskCollision() {
+    public bool checkDisinfectCollision() {
         return collideWithPlayer;
     }
 }

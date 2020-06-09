@@ -130,7 +130,7 @@ public class DestructBox : MonoBehaviour
                 hasWeapon = false;
 
             }
-            else if (gameObject.transform.GetChild(0).gameObject.name == "s_sanitizer" && gameObject.transform.GetChild(0).gameObject.GetComponent<Disinfectant>().checkMaskCollision())
+            else if (gameObject.transform.GetChild(0).gameObject.name == "s_sanitizer" && gameObject.transform.GetChild(0).gameObject.GetComponent<Disinfectant>().checkDisinfectCollision())
             {
                 //Add script disinfectant +1
                 Destroy(gameObject);

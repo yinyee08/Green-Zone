@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public Transform[] zombieSpawnPoints;
     public int zombieNumber;
 
+    public GameObject AirDropWeapons;
     private void Start()
     {
         //StartCoroutine(BeginGame());
@@ -114,7 +115,13 @@ public class GameManager : MonoBehaviour
 
         //networkObjecthandler3.SpawnNetworkObject();
         //BRS_AirDrop.AirDropInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position + new Vector3(0f,7f,0f);
-
+        for(int i=0; i<AirDropWeapons.transform.childCount; i++) {
+            if(!AirDropWeapons.transform.GetChild(i).gameObject.activeInHierarchy) {
+                AirDropWeapons.transform.GetChild(i).gameObject.SetActive(true);
+                break;
+            }
+        }
+        
         spawnAirDropTimer = 0f;
     }
 

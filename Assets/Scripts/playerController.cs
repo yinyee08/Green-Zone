@@ -32,6 +32,7 @@ public class playerController : MonoBehaviour
     private PhotonView pv;
     public NetworkObjectHandler networkBomb;
     public NetworkObjectHandler networkSpray;
+    public NetworkObjectHandler networkHighSpray;
     int health = 3;
     public string disinfectant;
     public string mask;
@@ -130,6 +131,15 @@ public class playerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.X))
             {
                 networkSpray.SpawnNetworkObject();
+                spraySound.Play();
+            }
+        }
+
+        if (this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                networkHighSpray.SpawnNetworkObject();
                 spraySound.Play();
             }
         }
@@ -400,6 +410,15 @@ public class playerController : MonoBehaviour
 
         }
 
+        if (other.gameObject.tag == "disinfectantPower")
+        {
+            timeDisinfectant += 30f;
+            collectSound.Play();
+            other.gameObject.SetActive(false);
+            this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(true);
+
+        }
+
         if (other.gameObject.tag == "mask")
         {
             // mask += 1;
@@ -479,6 +498,22 @@ public class playerController : MonoBehaviour
             {
                 this.disinfectant = "0.00";
                 this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(false);
+            }
+        }
+
+        if (this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.activeSelf)
+        {
+
+            timeDisinfectant -= Time.deltaTime;
+            string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
+            string seconds = (timeDisinfectant % 60).ToString("00");
+
+            this.disinfectant = minutes + ":" + seconds + "s";
+
+            if (timeDisinfectant < 0)
+            {
+                this.disinfectant = "0.00";
+                this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(false);
             }
         }
     }
