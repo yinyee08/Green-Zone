@@ -27,6 +27,8 @@ public class PhotonPlayer : MonoBehaviour
 
     public Text disinfectant_player1;
     public Text disinfectant_player2;
+    public Text disinfectantPower_player1;
+    public Text disinfectantPower_player2;
     public Text mask_player1;
     public Text mask_player2;
     public Text score;
@@ -80,7 +82,7 @@ public class PhotonPlayer : MonoBehaviour
                     health_value1 = playerObj1.GetComponent<NetworkObject>().GetHealth();
                     mask_player1.text = playerObj1.GetComponent<playerController>().GetMask().ToString();
                     disinfectant_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectant().ToString();
-
+                    disinfectantPower_player1.text = playerObj1.GetComponent<playerController>().GetDisinfectantPower().ToString();
 
                     if (!System.Single.IsNaN(health_value1))
                     {
@@ -93,6 +95,7 @@ public class PhotonPlayer : MonoBehaviour
                     health_value2 = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<NetworkObject>().GetHealth();
                     mask_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetMask();
                     disinfectant_player2.text = playerObj2.GetComponent<NetworkObject>().gameObject.GetComponent<playerController>().GetDisinfectant();
+                    disinfectantPower_player2.text = playerObj2.GetComponent<playerController>().GetDisinfectantPower().ToString();
 
                     if (!System.Single.IsNaN(health_value2))
                     {

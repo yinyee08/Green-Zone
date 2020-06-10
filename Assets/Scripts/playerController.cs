@@ -35,9 +35,11 @@ public class playerController : MonoBehaviour
     public NetworkObjectHandler networkHighSpray;
     private int health = 3;
     public string disinfectant;
+    public string disinfectantPower;
     public string mask;
     float timeMask = 0f;
     float timeDisinfectant = 0f;
+    float timeDisinfectantPower = 0f;
 
     GameObject[] door;
     public AudioSource bombSound;
@@ -59,6 +61,7 @@ public class playerController : MonoBehaviour
         pv = this.GetComponent<PhotonView>();
         mask = "0.00";
         disinfectant = "0.00";
+        disinfectantPower = "0.00";
         rb = GetComponent<Rigidbody>();
 
     }
@@ -74,6 +77,7 @@ public class playerController : MonoBehaviour
             plantbom();
             pv.RPC("timerMask", RpcTarget.All);
             pv.RPC("timerDisinfectant", RpcTarget.All);
+            pv.RPC("timerDisinfectantPower", RpcTarget.All);
             Spray();
             jumping();
 
@@ -393,7 +397,7 @@ public class playerController : MonoBehaviour
 
         if (other.gameObject.tag == "disinfectantPower")
         {
-            timeDisinfectant += 30f;
+            timeDisinfectantPower += 30f;
             collectSound.Play();
             other.gameObject.SetActive(false);
             this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(true);
@@ -440,6 +444,11 @@ public class playerController : MonoBehaviour
     public string GetDisinfectant()
     {
         return this.disinfectant;
+    }
+
+    public string GetDisinfectantPower()
+    {
+        return this.disinfectantPower;
     }
 
     [PunRPC]
@@ -494,6 +503,27 @@ public class playerController : MonoBehaviour
             if (timeDisinfectant < 0)
             {
                 this.disinfectant = "0.00";
+                this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(false);
+            }
+        }
+    }
+
+    [PunRPC]
+    public void timerDisinfectantPower()
+    {
+
+        if (this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.activeSelf)
+        {
+
+            timeDisinfectantPower -= Time.deltaTime;
+            string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
+            string seconds = (timeDisinfectant % 60).ToString("00");
+
+            this.disinfectantPower = minutes + ":" + seconds + "s";
+
+            if (timeDisinfectantPower < 0)
+            {
+                this.disinfectantPower = "0.00";
                 this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(false);
             }
         }

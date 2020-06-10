@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public Transform[] zombieSpawnPoints;
     public int zombieNumber;
+    public int spawnZombieNumber;
 
     public GameObject AirDropWeapons;
     private void Start()
@@ -38,22 +39,25 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (spawnAirDropTimer < respawnAirDrop)
+        if (!PhotonPlayer.starting)
         {
-            spawnAirDropTimer += Time.deltaTime;
-        }
-        else
-        {
-            SpawnAirDrop();
-        }
+            if (spawnAirDropTimer < respawnAirDrop)
+            {
+                spawnAirDropTimer += Time.deltaTime;
+            }
+            else
+            {
+                SpawnAirDrop();
+            }
 
-        if (spawnZombieTimer < respawnZombie)
-        {
-            spawnZombieTimer += Time.deltaTime;
-        }
-        else
-        {
-            SpawnZombie();
+            if (spawnZombieTimer < respawnZombie)
+            {
+                spawnZombieTimer += Time.deltaTime;
+            }
+            else
+            {
+                SpawnZombie();
+            }
         }
     }
 
@@ -115,13 +119,15 @@ public class GameManager : MonoBehaviour
 
         //networkObjecthandler3.SpawnNetworkObject();
         //BRS_AirDrop.AirDropInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position + new Vector3(0f,7f,0f);
-        for(int i=0; i<AirDropWeapons.transform.childCount; i++) {
-            if(!AirDropWeapons.transform.GetChild(i).gameObject.activeInHierarchy) {
+        for (int i = 0; i < AirDropWeapons.transform.childCount; i++)
+        {
+            if (!AirDropWeapons.transform.GetChild(i).gameObject.activeInHierarchy)
+            {
                 AirDropWeapons.transform.GetChild(i).gameObject.SetActive(true);
                 break;
             }
         }
-        
+
         spawnAirDropTimer = 0f;
     }
 
@@ -129,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         if (spawnZombieTimer < respawnZombie) return;
 
-        for (int i = 0; i < zombieNumber; i++)
+        for (int i = 0; i < spawnZombieNumber; i++)
         {
             int randomPoint = Random.Range(0, 10);
             zombieObject.pos = zombieSpawnPoints[randomPoint].position;

@@ -300,6 +300,7 @@ MonoBehaviour:
   networkSpray: {fileID: 5043871126026440371}
   networkHighSpray: {fileID: 7956711230849029924}
   disinfectant: 
+  disinfectantPower: 
   mask: 
   bombSound: {fileID: 2753707523074309922}
   spraySound: {fileID: -4304733522687065721}

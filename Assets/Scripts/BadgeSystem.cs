@@ -17,26 +17,26 @@ public class BadgeSystem : MonoBehaviour
     public GameObject silverBadge;
     public GameObject goldBadge;
 
-    public static float player1bonus=0f;
-    public static float player2bonus=0f;
+    public static float player1bonus = 0f;
+    public static float player2bonus = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("PLayer 1 : " + player1bonus + " Player 2 : " + player2bonus);
+
+        if (player1bonus > 0)
+        {
+            PhotonPlayer.score_earn = PhotonPlayer.score_earn + player1bonus;
+        }
+
+        if (player2bonus > 0)
+        {
+            PhotonPlayer.score_earn = PhotonPlayer.score_earn + player2bonus;
+        }
+
         if (PhotonNetwork.IsMasterClient == true)
         {
-            Debug.Log("PLayer 1 : "+player1bonus +" Player 2 : " + player2bonus);
-
-            if(player1bonus>0)
-            {
-                PhotonPlayer.score_earn = PhotonPlayer.score_earn + player1bonus;
-            }
-
-            if(player2bonus > 0)
-            {
-                PhotonPlayer.score_earn = PhotonPlayer.score_earn + player2bonus;
-            }
-           
             StartCoroutine(CheckScoreData(int.Parse(PhotonPlayer.score_earn.ToString())));
         }
 
