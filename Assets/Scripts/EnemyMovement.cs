@@ -33,14 +33,15 @@ public class EnemyMovement : MonoBehaviourPun
         player1 = GameObject.FindGameObjectWithTag("player1");
         player2 = GameObject.FindGameObjectWithTag("player2");
 
-        if (PhotonNetwork.CurrentRoom != null)
+        if (!PhotonPlayer.starting)
         {
+
             if (player1 != null)
             {
                 Vector3 direction1 = player1.transform.position - this.transform.position;
                 float angle1 = Vector3.Angle(direction1, this.transform.forward);
 
-                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
+                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5 && player1.GetComponent<NetworkObject>().GetHealth()>0)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
                 {
                     anim.SetBool("isIdle", false);
                     EnemyController(player1.transform, direction1);
@@ -62,7 +63,7 @@ public class EnemyMovement : MonoBehaviourPun
 
                 //else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
 
-                if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)
+                if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5 && player2.GetComponent<NetworkObject>().GetHealth() > 0)
 
                 {
                     anim.SetBool("isIdle", false);

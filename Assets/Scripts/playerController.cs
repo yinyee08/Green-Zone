@@ -33,7 +33,7 @@ public class playerController : MonoBehaviour
     public NetworkObjectHandler networkBomb;
     public NetworkObjectHandler networkSpray;
     public NetworkObjectHandler networkHighSpray;
-    int health = 3;
+    private int health = 3;
     public string disinfectant;
     public string mask;
     float timeMask = 0f;
@@ -87,19 +87,10 @@ public class playerController : MonoBehaviour
     void plantbom()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             plant();
-        /*if (playerName == "Player1")
-        {
-            if (bombPlanted < bombCount)
-                if (Input.GetKeyDown(KeyCode.Q))
-                    plant();
         }
-        else if (playerName == "Player2")
-        {
-            if (bombPlanted < bombCount)
-                if (Input.GetKeyDown(KeyCode.Space))
-                    plant();
-        }*/
     }
 
     void plant()
@@ -108,19 +99,9 @@ public class playerController : MonoBehaviour
 
         if (noBomb(roundedPosition))
         {
+
             networkBomb.SpawnNetworkObject();
             bombSound.Play();
-            //networkBomb.name = "NormalBomb";
-            // ((GameObject)Instantiate(normalBomb, roundedPosition, transform.rotation)).tag = "bomb";
-            /*  bombPlanted += 1;
-            if (bombType == "normal")
-            {
-                ((GameObject)Instantiate(normalBomb, roundedPosition, transform.rotation)).tag = player + "bomb";
-            }
-            else if (bombType == "spike")
-            {
-                ((GameObject)Instantiate(spikeBomb, roundedPosition, transform.rotation)).tag = player + "bomb";
-            }*/
         }
     }
 
@@ -522,9 +503,11 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && playerIsOnGrounded)
         {
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             rb.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
             playerIsOnGrounded = false;
         }
+
     }
     
 

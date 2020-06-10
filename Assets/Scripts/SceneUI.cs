@@ -17,18 +17,21 @@ public class SceneUI : MonoBehaviour
 
     public void goEasyLevelScene()
     {
+        PhotonPlayer.score_earn = 0f;
         levelUI = "easy";
         sceneLoad.sceneName = "Scene1";
     }
 
     public void goMediumLevelScene()
     {
+        PhotonPlayer.score_earn = 0f;
         levelUI = "medium";
         sceneLoad.sceneName = "Scene2";
     }
 
     public void goHardLevelScene()
     {
+        PhotonPlayer.score_earn = 0f;
         levelUI = "hard";
         sceneLoad.sceneName = "Scene3";
     }
@@ -37,10 +40,10 @@ public class SceneUI : MonoBehaviour
     {
 
 
-       /* if (!PhotonNetwork.ConnectUsingSettings())
-        {
-            PhotonNetwork.ConnectUsingSettings();
+        /* if (!PhotonNetwork.ConnectUsingSettings())
+         {
+             PhotonNetwork.ConnectUsingSettings();
 
-        }*/
+         }*/
     }
 }

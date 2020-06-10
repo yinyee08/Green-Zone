@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
       propertyPath: power
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}
       propertyPath: radius
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114090102001307674, guid: 10fc24300fd6383438053fe6ea6e8c9e,
         type: 3}

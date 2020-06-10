@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using SVR;
 using UnityEngine.SceneManagement;
-using UnityEngine.Networking;
 
 public class PhotonPlayer : MonoBehaviour
 {
@@ -16,15 +15,14 @@ public class PhotonPlayer : MonoBehaviour
 
     public Text timer;
     public float timeLeft = 10.0f;
-    string countdownTime = "0.00";
     float gametime = 3f;
 
     public GameObject[] healthPlayer1;
     public GameObject[] healthPlayer2;
     GameObject playerObj1;
     GameObject playerObj2;
-    float health_value1;
-    float health_value2;
+    float health_value1 = 3;
+    float health_value2 = 3;
     public static float score_earn = 0f;
 
     public Text disinfectant_player1;
@@ -40,19 +38,19 @@ public class PhotonPlayer : MonoBehaviour
     public AudioSource musicStart;
     public AudioSource zombieSpawnSound;
 
-    bool start = true;
+    public static bool starting = true;
 
     public void Awake()
     {
-        PhotonNetwork.SerializationRate = 5;
-        PhotonNetwork.SendRate = 20;
+      //  PhotonNetwork.SerializationRate = 5;
+       // PhotonNetwork.SendRate = 20;
         timer.text = "0.00";
     }
 
     // Start is called before the first frame update
     public void Start()
     {
-         musicStart.Play();
+        musicStart.Play();
     }
 
 
@@ -66,8 +64,12 @@ public class PhotonPlayer : MonoBehaviour
 
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
             {
-                
+
                 StartCoroutine("startGame");
+            }
+
+            if (!starting)
+            {
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
                 playerObj2 = GameObject.FindGameObjectWithTag("player2");
                 score.text = score_earn.ToString();
@@ -102,65 +104,66 @@ public class PhotonPlayer : MonoBehaviour
                 string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
                 string seconds = (timeLeft % 60).ToString("00");
                 timer.text = minutes + ":" + seconds;
-                countdownTime = timer.text;
                 if (timeLeft <= 0.00f)
                 {
 
                     //  timer.text = "UP !";
-                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (playerObj1.GetComponent<NetworkObject>().GetHealth() > 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() > 0))
                     {
                         //win game
+                        BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
+                        BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
                         winObject.SetActive(true);
-                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
                     }
                     else
                     {
                         //lose game
+                        BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
+                        BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
                         loseObject.SetActive(true);
-                        StartCoroutine(CheckScoreData(int.Parse(score.text)));
                     }
                 }
 
-                if (timeLeft > 0.00f && playerObj1.GetComponent<NetworkObject>().GetHealth() <= 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() <= 0)
+                else if (timeLeft > 0.00f && playerObj1.GetComponent<NetworkObject>().GetHealth() <= 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() <= 0)
                 {
-                    winObject.SetActive(true);
-                    StartCoroutine(CheckScoreData(int.Parse(score.text)));
+                    BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
+                    BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
+                    loseObject.SetActive(true);
                 }
 
             }
             else
             {
                 timer.text = "--:--";
-                countdownTime = timer.text;
             }
-
         }
+
 
 
     }
 
     public IEnumerator startGame()
     {
-        while (start == true)
+        while (starting == true)
         {
             playersInfo.text = "Players Ready !";
-           // gameCountdown.text = "3";
-           // yield return new WaitForSeconds(1f);
-           // gameCountdown.text = "2";
-           // yield return new WaitForSeconds(1f);
-          // gameCountdown.text = "1";
-          //  yield return new WaitForSeconds(1f);
+            // gameCountdown.text = "3";
+            // yield return new WaitForSeconds(1f);
+            // gameCountdown.text = "2";
+            // yield return new WaitForSeconds(1f);
+            // gameCountdown.text = "1";
+            //  yield return new WaitForSeconds(1f);
             gameCountdown.text = "Game Start";
             yield return new WaitForSeconds(2f);
             playersInfo.text = "";
             gameCountdown.text = "";
-            start = false;
-        }   
-       
-        
+            starting = false;
+        }
+
+
     }
 
-    
+
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
     {
@@ -192,103 +195,9 @@ public class PhotonPlayer : MonoBehaviour
 
     public void GotoBadgeScene()
     {
-            SceneManager.LoadScene("Badge");    
+        SceneManager.LoadScene("Badge");
     }
 
-    IEnumerator RemoveScore(int score, string levelId, int playerhighscore)
-    {
-        int highScore = playerhighscore;
-        score = score * (-1);
-        using (UnityWebRequest www = UnityWebRequest.Get("http://api.tenenet.net/insertPlayerActivity?token=7bfe7669d12cb3f64681d71d4bb54a22&alias=" + GetTeamAlias.team + "&id=" + levelId + "&operator=remove&value=" + score))
-        {
-            yield return www.SendWebRequest();
-            // var data = www.downloadHandler.text;
-
-            if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log("Success Remove Score");
-                StartCoroutine(SetScore(highScore, levelId));
-
-
-            }
-        }
-    }
-
-    IEnumerator SetScore(int score, string levelId)
-    {
-
-        using (UnityWebRequest www = UnityWebRequest.Get("http://api.tenenet.net/insertPlayerActivity?token=7bfe7669d12cb3f64681d71d4bb54a22&alias=" + GetTeamAlias.team + "&id=" + levelId + "&operator=add&value=" + score))
-        {
-            yield return www.SendWebRequest();
-            var data = www.downloadHandler.text;
-
-            if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-               // Debug.Log("Success Set Score");
-                Debug.Log(data);
-
-            }
-        }
-    }
-
-    IEnumerator CheckScoreData(int score)
-    {
-
-        int level = 1;
-        string curLevelId = "";
-        if (level == 1)
-        {
-            curLevelId = "easy_score";
-        }
-        else if (level == 2)
-        {
-            curLevelId = "medium_score";
-        }
-        else if (level == 3)
-        {
-            curLevelId = "hard_score";
-        }
-
-        using (UnityWebRequest www = UnityWebRequest.Get("http://api.tenenet.net/getPlayer?token=7bfe7669d12cb3f64681d71d4bb54a22&alias=" + GetTeamAlias.team))
-        {
-            yield return www.SendWebRequest();
-            var data = www.downloadHandler.text;
-
-            if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Data player = JsonUtility.FromJson<Data>(data);
-                for (int i = 0; i < player.message.score.Length; i++)
-                {
-                    //  Debug.Log(j+ " ID : "+player.message.score[j].metric_id);
-                    if (player.message.score[i].metric_id == curLevelId)
-                    {
-                        if (player.message.score[i].value < score)
-                        {
-                           // Debug.Log("SetScore");
-                            StartCoroutine(RemoveScore(player.message.score[i].value, curLevelId, score));
-                        }
-                        else
-                        {
-                           // Debug.Log("NotSetScore");
-                        }
-                    }
-                }
-            }
-
-        }
-    }
 
 
 }
