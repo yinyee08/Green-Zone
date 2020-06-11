@@ -15,5 +15,10 @@ public class BackHomeScene : MonoBehaviour
     public void loadMenuScene()
     {
         SceneManager.LoadScene("Room1");
-    } 
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

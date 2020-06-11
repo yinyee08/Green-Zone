@@ -36,14 +36,8 @@ public class SceneUI : MonoBehaviour
         sceneLoad.sceneName = "Scene3";
     }
 
-    public void ReConnected()
+    public void Exit()
     {
-
-
-        /* if (!PhotonNetwork.ConnectUsingSettings())
-         {
-             PhotonNetwork.ConnectUsingSettings();
-
-         }*/
+        Application.Quit();
     }
 }
