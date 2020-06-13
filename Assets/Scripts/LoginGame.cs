@@ -87,7 +87,7 @@ public class LoginGame : MonoBehaviour
         if (!string.IsNullOrEmpty(signInTeam.text))
         {
             teamName = signInTeam.text;
-            StartCoroutine(GetData2(teamName));
+            StartCoroutine(GetPlayerData(teamName));
             logTeam.text = "Hi, " + signInTeam.text;
             showLoggedIn();
         }
@@ -98,13 +98,13 @@ public class LoginGame : MonoBehaviour
         if (!string.IsNullOrEmpty(signUpTeam.text))
         {
             teamName = signUpTeam.text;
-            StartCoroutine(GetData2(teamName));
+            StartCoroutine(GetPlayerData(teamName));
             logTeam.text = "Hi, " + signUpTeam.text;
             showLoggedIn();
         }
     }
 
-    IEnumerator Upload(string team_alias, string team_name)
+    IEnumerator SignUp(string team_alias, string team_name)
     {
         string team_id = team_name.Substring(0, 1) + "01";
 
@@ -138,7 +138,7 @@ public class LoginGame : MonoBehaviour
         }
     }
 
-    IEnumerator GetData2(string team_alias)
+    IEnumerator GetPlayerData(string team_alias)
     {
 
         string team_name = team_alias;
@@ -161,7 +161,7 @@ public class LoginGame : MonoBehaviour
                 if (players.status == 0)
                 {
 
-                    StartCoroutine(Upload(team_alias, team_name));
+                    StartCoroutine(SignUp(team_alias, team_name));
                     Debug.Log("Prepare to create user");
                 }
                 else

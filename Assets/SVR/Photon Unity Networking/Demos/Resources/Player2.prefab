@@ -2014,6 +2014,7 @@ MonoBehaviour:
   networkSpray: {fileID: -8553116448622740914}
   networkHighSpray: {fileID: 8592986744211385772}
   disinfectant: 
+  disinfectantPower: 
   mask: 
   bombSound: {fileID: -8794244583982151694}
   spraySound: {fileID: 6669320535455543445}

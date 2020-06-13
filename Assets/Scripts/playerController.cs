@@ -387,7 +387,6 @@ public class playerController : MonoBehaviour
 
         if (other.gameObject.tag == "disinfectant")
         {
-            // disinfectant += 1;
             timeDisinfectant += 30f;
             collectSound.Play();
             other.gameObject.SetActive(false);
@@ -406,18 +405,12 @@ public class playerController : MonoBehaviour
 
         if (other.gameObject.tag == "mask")
         {
-            // mask += 1;
             timeMask += 30f;
             collectSound.Play();
             other.gameObject.SetActive(false);
             this.gameObject.transform.Find("Head/mask").gameObject.SetActive(true);
         }
 
-        /*     if (other.gameObject.tag == "door")
-             {
-                 Debug.Log("Collide Door");
-                 this.gameObject.transform.Translate(0,0,0.8f);
-             }*/
         playerIsOnGrounded = true;
 
     }
@@ -467,7 +460,6 @@ public class playerController : MonoBehaviour
             {
                 this.mask = "0.00";
                 this.gameObject.transform.Find("Head/mask").gameObject.SetActive(false);
-                // this.gameObject.GetComponent<BoxCollider>().enabled = true;
             }
         }
     }
@@ -490,22 +482,6 @@ public class playerController : MonoBehaviour
                 this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(false);
             }
         }
-
-        if (this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.activeSelf)
-        {
-
-            timeDisinfectant -= Time.deltaTime;
-            string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
-            string seconds = (timeDisinfectant % 60).ToString("00");
-
-            this.disinfectant = minutes + ":" + seconds + "s";
-
-            if (timeDisinfectant < 0)
-            {
-                this.disinfectant = "0.00";
-                this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(false);
-            }
-        }
     }
 
     [PunRPC]
@@ -516,8 +492,8 @@ public class playerController : MonoBehaviour
         {
 
             timeDisinfectantPower -= Time.deltaTime;
-            string minutes = Mathf.Floor(timeDisinfectant / 60).ToString("0");
-            string seconds = (timeDisinfectant % 60).ToString("00");
+            string minutes = Mathf.Floor(timeDisinfectantPower / 60).ToString("0");
+            string seconds = (timeDisinfectantPower % 60).ToString("00");
 
             this.disinfectantPower = minutes + ":" + seconds + "s";
 
