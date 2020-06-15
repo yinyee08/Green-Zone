@@ -21,8 +21,8 @@ public class PhotonPlayer : MonoBehaviour
     public GameObject[] healthPlayer2;
     GameObject playerObj1;
     GameObject playerObj2;
-    float health_value1 = 3;
-    float health_value2 = 3;
+    float health_value1 = 0f;
+    float health_value2 = 0f;
     public static float score_earn = 0f;
 
     public Text disinfectant_player1;
@@ -40,7 +40,7 @@ public class PhotonPlayer : MonoBehaviour
     public AudioSource musicStart;
     public AudioSource zombieSpawnSound;
 
-    public static bool starting = true;
+    public static bool starting = false;
 
     public void Awake()
     {
@@ -89,6 +89,13 @@ public class PhotonPlayer : MonoBehaviour
                         UpdatePlayerHealth(healthPlayer1, health_value1);
                     }
                 }
+                else
+                {
+                    health_value1 = 0f;
+                    mask_player1.text = "0.00";
+                    disinfectant_player1.text = "0.00";
+                    disinfectantPower_player1.text = "0.00";
+                }
 
                 if (playerObj2 != null)
                 {
@@ -102,6 +109,13 @@ public class PhotonPlayer : MonoBehaviour
                         UpdatePlayerHealth(healthPlayer2, health_value2);
                     }
                 }
+                else
+                {
+                    health_value2 = 0f ;
+                    mask_player2.text = "0.00";
+                    disinfectant_player2.text = "0.00";
+                    disinfectantPower_player2.text = "0.00";
+                }
 
                 timeLeft -= Time.deltaTime;
                 string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
@@ -111,26 +125,26 @@ public class PhotonPlayer : MonoBehaviour
                 {
 
                     //  timer.text = "UP !";
-                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (playerObj1.GetComponent<NetworkObject>().GetHealth() > 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() > 0))
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (health_value1 > 0 && health_value2 > 0))
                     {
                         //win game
-                        BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
-                        BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
+                        BadgeSystem.player1bonus = health_value1 * 5;
+                        BadgeSystem.player2bonus = health_value2 * 5;
                         winObject.SetActive(true);
                     }
                     else
                     {
                         //lose game
-                        BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
-                        BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
+                        BadgeSystem.player1bonus = health_value1 * 5;
+                        BadgeSystem.player2bonus = health_value2 * 5;
                         loseObject.SetActive(true);
                     }
                 }
 
-                else if (timeLeft > 0.00f && playerObj1.GetComponent<NetworkObject>().GetHealth() <= 0 && playerObj2.GetComponent<NetworkObject>().GetHealth() <= 0)
+                else if (timeLeft > 0.00f && health_value1 <= 0 && health_value2 <= 0)
                 {
-                    BadgeSystem.player1bonus = playerObj1.GetComponent<NetworkObject>().GetHealth() * 5;
-                    BadgeSystem.player2bonus = playerObj2.GetComponent<NetworkObject>().GetHealth() * 5;
+                    BadgeSystem.player1bonus = health_value1 * 5;
+                    BadgeSystem.player2bonus = health_value2 * 5;
                     loseObject.SetActive(true);
                 }
 

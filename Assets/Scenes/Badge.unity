@@ -547,48 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489298d2578a6ad45b94106bba45e3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnShow:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHide:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnShowComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHideComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  showItemOnMenuEnable: 1
-  showAnimationType: 3
-  hideAnimationType: 3
-  animationFromCornerType: 0
-  animationToCornerType: 0
-  pivotWhileRotating: 0
-  animationFromCornerStartFromType: 0
-  fadeChildren: 1
-  animationShowDuration: 1
-  animationHideDuration: 1
-  withDelay: 1
-  showDelay: 0
-  hideDelay: 0.33333334
-  elasticityPower: 1
-  rotateFrom: {x: 0, y: 0, z: 0}
-  rotateTo: {x: 0, y: 0, z: 0}
-  initialWorldPosition: {x: 0, y: 0, z: 0}
-  initialLocalPosition: {x: 0, y: 0, z: 0}
-  initialAnchoredPosition: {x: 0, y: 0, z: 0}
-  initialColorsOfChildren: []
-  initialScale: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialPivot: {x: 0, y: 0}
-  rectTransform: {fileID: 0}
-  graphics: []
-  isReady: 0
 --- !u!114 &517947508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1121,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094735955}
   m_LocalRotation: {x: -0.03718841, y: 0.14610544, z: -0.98856264, w: -0.0037532873}
-  m_LocalPosition: {x: 0, y: 0, z: 249}
+  m_LocalPosition: {x: 0, y: 0, z: 230.96555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 748336397}
@@ -1172,8 +1130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 16.807001, y: 4.339, z: -179.794}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3186, y: 1762}
-  m_SizeDelta: {x: 1100, y: 695}
+  m_AnchoredPosition: {x: 3466.457, y: 1764.4548}
+  m_SizeDelta: {x: 893, y: 559}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094735957
 MonoBehaviour:
@@ -1421,7 +1379,7 @@ GameObject:
   - component: {fileID: 1235826702}
   - component: {fileID: 1235826701}
   m_Layer: 5
-  m_Name: LeaderboardButton (1)
+  m_Name: LeaderboardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1393,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235826699}
   m_LocalRotation: {x: -0.037188414, y: 0.14610544, z: -0.9885627, w: -0.0037532873}
-  m_LocalPosition: {x: 0, y: 0, z: 23.32931}
+  m_LocalPosition: {x: 0, y: 0, z: 21.640001}
   m_LocalScale: {x: 0.09731304, y: 0.093693376, z: 0.0937111}
   m_Children:
   - {fileID: 1029907819}
@@ -1444,8 +1402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 16.807001, y: 4.339, z: -179.794}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312.18246, y: 208.7195}
-  m_SizeDelta: {x: 1100, y: 695}
+  m_AnchoredPosition: {x: 339.4698, y: 209.02}
+  m_SizeDelta: {x: 892.8, y: 559.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235826701
 MonoBehaviour:
@@ -2568,7 +2526,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904681732}
   m_LocalRotation: {x: -0.037188414, y: 0.14610544, z: -0.9885627, w: -0.0037532873}
-  m_LocalPosition: {x: 0, y: 0, z: 58.323273}
+  m_LocalPosition: {x: 0, y: 0, z: 54}
   m_LocalScale: {x: 0.23423009, y: 0.23423012, z: 0.23423}
   m_Children:
   - {fileID: 752910429}
@@ -2577,8 +2535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 16.807001, y: 4.339, z: -179.794}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 741.2593, y: 430.3756}
-  m_SizeDelta: {x: 1100, y: 695}
+  m_AnchoredPosition: {x: 807, y: 431}
+  m_SizeDelta: {x: 892.8, y: 559.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904681734
 MonoBehaviour:
@@ -2720,48 +2678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489298d2578a6ad45b94106bba45e3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnShow:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHide:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnShowComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHideComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  showItemOnMenuEnable: 1
-  showAnimationType: 3
-  hideAnimationType: 3
-  animationFromCornerType: 0
-  animationToCornerType: 0
-  pivotWhileRotating: 0
-  animationFromCornerStartFromType: 0
-  fadeChildren: 1
-  animationShowDuration: 1
-  animationHideDuration: 1
-  withDelay: 1
-  showDelay: 0
-  hideDelay: 0.33333334
-  elasticityPower: 1
-  rotateFrom: {x: 0, y: 0, z: 0}
-  rotateTo: {x: 0, y: 0, z: 0}
-  initialWorldPosition: {x: 0, y: 0, z: 0}
-  initialLocalPosition: {x: 0, y: 0, z: 0}
-  initialAnchoredPosition: {x: 0, y: 0, z: 0}
-  initialColorsOfChildren: []
-  initialScale: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialPivot: {x: 0, y: 0}
-  rectTransform: {fileID: 0}
-  graphics: []
-  isReady: 0
 --- !u!114 &1929865197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2852,48 +2768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489298d2578a6ad45b94106bba45e3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnShow:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHide:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnShowComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  OnHideComplete:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  showItemOnMenuEnable: 1
-  showAnimationType: 3
-  hideAnimationType: 3
-  animationFromCornerType: 0
-  animationToCornerType: 0
-  pivotWhileRotating: 0
-  animationFromCornerStartFromType: 0
-  fadeChildren: 1
-  animationShowDuration: 1
-  animationHideDuration: 1
-  withDelay: 1
-  showDelay: 0
-  hideDelay: 0.33333334
-  elasticityPower: 1
-  rotateFrom: {x: 0, y: 0, z: 0}
-  rotateTo: {x: 0, y: 0, z: 0}
-  initialWorldPosition: {x: 0, y: 0, z: 0}
-  initialLocalPosition: {x: 0, y: 0, z: 0}
-  initialAnchoredPosition: {x: 0, y: 0, z: 0}
-  initialColorsOfChildren: []
-  initialScale: {x: 0, y: 0, z: 0}
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  initialPivot: {x: 0, y: 0}
-  rectTransform: {fileID: 0}
-  graphics: []
-  isReady: 0
 --- !u!114 &2039616565
 MonoBehaviour:
   m_ObjectHideFlags: 0

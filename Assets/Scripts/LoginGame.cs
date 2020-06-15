@@ -46,9 +46,11 @@ public class LoginGame : MonoBehaviour
     public GameObject LoginPanel;
 
     public GameObject LoggedIn;
-    public TextMeshProUGUI signInTeam;
-    public TextMeshProUGUI signUpTeam;
+    public Text signInTeam;
+    public Text signUpTeam;
     public Text logTeam;
+    public Text placeholderSignIn;
+    public Text placeholderSignUp;
 
     public static string teamName;
     public static string teamalias;
@@ -84,7 +86,12 @@ public class LoginGame : MonoBehaviour
 
     public void setNameSignIn()
     {
-        if (!string.IsNullOrEmpty(signInTeam.text))
+        if (string.IsNullOrEmpty(signInTeam.text))
+        {
+            placeholderSignIn.text = "Please Type Team Name !";
+           
+        }
+        else
         {
             teamName = signInTeam.text;
             StartCoroutine(GetPlayerData(teamName));
@@ -95,7 +102,11 @@ public class LoginGame : MonoBehaviour
 
     public void setNameSignUp()
     {
-        if (!string.IsNullOrEmpty(signUpTeam.text))
+        if (string.IsNullOrEmpty(signUpTeam.text))
+        {
+            placeholderSignUp.text = "Please Type Team Name !";
+        }
+        else
         {
             teamName = signUpTeam.text;
             StartCoroutine(GetPlayerData(teamName));
