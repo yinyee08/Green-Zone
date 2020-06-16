@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\PhotonPlayer.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\PlayerPhoton.cs" />
+    <Compile Include="Assets\Scripts\ReptileMovement.cs" />
     <Compile Include="Assets\Scripts\RoomListing.cs" />
     <Compile Include="Assets\Scripts\RoomListingsMenu.cs" />
     <Compile Include="Assets\Scripts\SceneUI.cs" />

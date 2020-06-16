@@ -11,10 +11,10 @@ using UnityEngine.SceneManagement;
 public class PhotonPlayer : MonoBehaviour
 {
     //   private PhotonView PV;
-    public NetworkObjectHandler zombie;
+    public NetworkObjectHandler reptileCharacter;
 
     public Text timer;
-    public float timeLeft = 10.0f;
+    public float timeLeft = 300.0f;
     float gametime = 3f;
 
     public GameObject[] healthPlayer1;
@@ -38,7 +38,12 @@ public class PhotonPlayer : MonoBehaviour
     public GameObject winObject;
     public GameObject loseObject;
     public AudioSource musicStart;
-    public AudioSource zombieSpawnSound;
+    public AudioSource warningSound;
+    public AudioSource reptileSpawnSound;
+    public AudioSource reptileSound;
+
+    int spawnReptile = 0;
+    int warningCount = 0;
 
     public static bool starting = true;
 
@@ -69,7 +74,6 @@ public class PhotonPlayer : MonoBehaviour
 
                 StartCoroutine("startGame");
             }
-
             if (!starting)
             {
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
@@ -124,6 +128,28 @@ public class PhotonPlayer : MonoBehaviour
                 string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
                 string seconds = (timeLeft % 60).ToString("00");
                 timer.text = minutes + ":" + seconds;
+
+                if (timer.text == "01:05")
+                {
+                    if(warningCount==0)
+                    {
+                        StartCoroutine(reptileSoundEffect());
+                        warningCount++;
+                    }
+                }
+
+                    if (timer.text == "01:00")
+                {
+                        if (PhotonNetwork.IsMasterClient==true && spawnReptile==0)
+                        {
+                        reptileSpawnSound.Play();
+                        spawnReptile = spawnReptile + 1;
+                        reptileCharacter.SpawnNetworkObject();
+                        reptileSound.Play();
+                    }
+                    
+                }
+
                 if (timeLeft <= 0.00f)
                 {
 
@@ -177,6 +203,12 @@ public class PhotonPlayer : MonoBehaviour
 
     }
 
+    public IEnumerator reptileSoundEffect()
+    {
+        warningSound.Play();
+        yield return new WaitForSeconds(2f);
+        
+    }
 
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
