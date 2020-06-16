@@ -17,41 +17,8 @@ public class CameraFollow : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-      {
-
-
-      //    cameraOffSet = new Vector3(0,9,-10);
-      }
-
-    // Update is called once per frame
-     /*   void LateUpdate()
-        {
-
-
-            Vector3 desiredPosition;
-            //  transform.position = playerObj.transform.position + cameraOffSet;
-            if (PhotonNetwork.IsMasterClient == true)
-            {
-                   playerObj1 = GameObject.Find("/Player1");
-                   desiredPosition = playerObj1.transform.position + cameraOffSet;
-                   Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-                   transform.position = smoothedPosition;
-                   transform.rotation = playerObj1.transform.rotation;
-                   transform.LookAt(playerObj1.transform);   
-
-          }
-            else
-            {
-                    playerObj2 = GameObject.Find("/Player2");
-                    desiredPosition = playerObj2.transform.position + cameraOffSet;
-                    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-                    transform.position = smoothedPosition;
-                    transform.rotation = playerObj2.transform.rotation;
-                    transform.LookAt(playerObj2.transform);
-
-            }
-
-        }*/
+    {
+    }
 
     private void LateUpdate()
     {
@@ -60,7 +27,7 @@ public class CameraFollow : MonoBehaviour
 
     public void Refresh()
     {
-        if (PhotonNetwork.IsMasterClient == true)
+        if (PhotonNetwork.IsMasterClient == true && GameManager.clientname=="player1")
         {
             playerObj1 = GameObject.FindGameObjectWithTag("player1");
         }

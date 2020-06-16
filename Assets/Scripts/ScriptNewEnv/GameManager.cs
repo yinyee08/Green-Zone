@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public int spawnZombieNumber;
 
     public GameObject AirDropWeapons;
+    public static string clientname;
+
     private void Start()
     {
         //StartCoroutine(BeginGame());
@@ -81,8 +83,8 @@ public class GameManager : MonoBehaviour
             {
 
                 networkObjecthandler1.SpawnNetworkObject();
-                //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
-                Debug.Log("Master Avatar1");
+                clientname = "player1";
+                Debug.Log("Master : " + clientname);
                 for (int i = 0; i < zombieNumber; i++)
                 {
                     int randomPoint = Random.Range(0, 10);
@@ -94,8 +96,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 networkObjecthandler2.SpawnNetworkObject();
-                //PlayerPhoton.LocalPlayerInstance.transform.position = mazePrefab.GetCell(mazePrefab.RandomCoordinates).transform.position;
-                Debug.Log("Client Avatar1");
+                clientname = "player2";
+                Debug.Log("Client : "+clientname);
             }
 
         }

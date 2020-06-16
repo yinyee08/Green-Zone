@@ -40,7 +40,7 @@ public class PhotonPlayer : MonoBehaviour
     public AudioSource musicStart;
     public AudioSource zombieSpawnSound;
 
-    public static bool starting = false;
+    public static bool starting = true;
 
     public void Awake()
     {
@@ -74,6 +74,7 @@ public class PhotonPlayer : MonoBehaviour
             {
                 playerObj1 = GameObject.FindGameObjectWithTag("player1");
                 playerObj2 = GameObject.FindGameObjectWithTag("player2");
+                playersInfo.text = "";
                 score.text = score_earn.ToString();
 
                 if (playerObj1 != null)
@@ -95,6 +96,7 @@ public class PhotonPlayer : MonoBehaviour
                     mask_player1.text = "0.00";
                     disinfectant_player1.text = "0.00";
                     disinfectantPower_player1.text = "0.00";
+                    UpdatePlayerHealth(healthPlayer1, health_value1);
                 }
 
                 if (playerObj2 != null)
@@ -115,6 +117,7 @@ public class PhotonPlayer : MonoBehaviour
                     mask_player2.text = "0.00";
                     disinfectant_player2.text = "0.00";
                     disinfectantPower_player2.text = "0.00";
+                    UpdatePlayerHealth(healthPlayer2, health_value2);
                 }
 
                 timeLeft -= Time.deltaTime;
@@ -164,12 +167,6 @@ public class PhotonPlayer : MonoBehaviour
         while (starting == true)
         {
             playersInfo.text = "Players Ready !";
-            // gameCountdown.text = "3";
-            // yield return new WaitForSeconds(1f);
-            // gameCountdown.text = "2";
-            // yield return new WaitForSeconds(1f);
-            // gameCountdown.text = "1";
-            //  yield return new WaitForSeconds(1f);
             gameCountdown.text = "Game Start";
             yield return new WaitForSeconds(2f);
             playersInfo.text = "";
