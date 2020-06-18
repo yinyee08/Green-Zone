@@ -183,6 +183,12 @@ public class PhotonPlayer : MonoBehaviour
                 timer.text = "--:--";
             }
         }
+        else
+        {
+            BadgeSystem.player1bonus = 0;
+            BadgeSystem.player2bonus = 0;
+            loseObject.SetActive(true);
+        }
 
 
 

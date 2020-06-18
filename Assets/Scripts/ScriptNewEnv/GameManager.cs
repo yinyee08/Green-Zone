@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
                 networkObjecthandler1.SpawnNetworkObject();
                 clientname = "player1";
-                Debug.Log("Master : " + clientname);
+               // Debug.Log("Master : " + clientname);
                 for (int i = 0; i < zombieNumber; i++)
                 {
                     int randomPoint = Random.Range(0, 10);
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             {
                 networkObjecthandler2.SpawnNetworkObject();
                 clientname = "player2";
-                Debug.Log("Client : "+clientname);
+           //     Debug.Log("Client : "+clientname);
             }
 
         }

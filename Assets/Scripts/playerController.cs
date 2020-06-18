@@ -75,11 +75,16 @@ public class playerController : MonoBehaviour
             rotatin();
             movin();
             plantbom();
+            Spray();
+            jumping();
+
             pv.RPC("timerMask", RpcTarget.All);
             pv.RPC("timerDisinfectant", RpcTarget.All);
             pv.RPC("timerDisinfectantPower", RpcTarget.All);
-            Spray();
-            jumping();
+
+            // timerMask();
+            // timerDisinfectant();
+            // timerDisinfectantPower(); 
 
             //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
             //   else if (transform.rotation.eulerAngles.y > 179 && transform.rotation.eulerAngles.y < 181) currentFacingDirection = "down";
@@ -339,6 +344,7 @@ public class playerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+
         if (kickBomb == true)
         {
             if (other.gameObject.CompareTag("player1bomb") || other.gameObject.CompareTag("player2bomb"))
@@ -459,8 +465,13 @@ public class playerController : MonoBehaviour
             if (timeMask < 0)
             {
                 this.mask = "0.00";
+                timeMask = 0f;
                 this.gameObject.transform.Find("Head/mask").gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            timeMask = 0f;
         }
     }
 
@@ -479,8 +490,13 @@ public class playerController : MonoBehaviour
             if (timeDisinfectant < 0)
             {
                 this.disinfectant = "0.00";
+                timeDisinfectant = 0f;
                 this.gameObject.transform.Find("Hands/sanitizer").gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            timeDisinfectant = 0f;
         }
     }
 
@@ -500,8 +516,13 @@ public class playerController : MonoBehaviour
             if (timeDisinfectantPower < 0)
             {
                 this.disinfectantPower = "0.00";
+                timeDisinfectantPower = 0f;
                 this.gameObject.transform.Find("Hands/sanitizerPowerUp").gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            timeDisinfectantPower = 0f;
         }
     }
 

@@ -135,11 +135,11 @@ public class LoginGame : MonoBehaviour
                 if (result.status == 1)
                 {
                     teamalias = team_alias;
-                    Debug.Log("Player created!");
+                   // Debug.Log("Player created!");
                 }
                 else
                 {
-                    Debug.Log("Player Fail created!");
+                  //  Debug.Log("Player Fail created!");
                 }
 
 
@@ -173,12 +173,12 @@ public class LoginGame : MonoBehaviour
                 {
 
                     StartCoroutine(SignUp(team_alias, team_name));
-                    Debug.Log("Prepare to create user");
+                //    Debug.Log("Prepare to create user");
                 }
                 else
                 {
                     teamalias = team_alias;
-                    Debug.Log("Player Existed");
+                  //  Debug.Log("Player Existed");
 
                 }
 
