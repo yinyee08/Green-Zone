@@ -21,6 +21,7 @@ TagManager:
   - tree
   - MazeEnv
   - disinfectantPower
+  - room
   layers:
   - Default
   - TransparentFX

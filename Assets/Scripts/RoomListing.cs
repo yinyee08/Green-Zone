@@ -15,8 +15,8 @@ public class RoomListing : MonoBehaviour
     public Text _text;
     public Button JoinRoomButton;
 
-    private string roomName;
-    
+    public string roomName;
+
     public void Start()
     {
         JoinRoomButton.onClick.AddListener(() =>
@@ -27,32 +27,15 @@ public class RoomListing : MonoBehaviour
             }
 
             PhotonNetwork.JoinRoom(roomName);
-            Debug.Log("JoinRoom2 : "+roomName);
+            Debug.Log("JoinRoom2 : " + roomName);
         });
     }
 
     public void SetRoomInfo(RoomInfo roominfo)
     {
-       // teamname = LoginGame.teamName;
+        // teamname = LoginGame.teamName;
         roomName = roominfo.Name;
-        _text.text = roominfo.Name + ", " + roominfo.MaxPlayers + " Players";
+        _text.text = roominfo.Name + ", " + roominfo.PlayerCount + " Player Available";
     }
 
-
-    /* public void GetRoomName()
-     {
-         if (string.IsNullOrEmpty(ntext.text)) {
-             Debug.Log("Isnull");
-
-
-         }
-         else
-         {
-
-             Debug.Log("Notnull");
-             Debug.Log( ntext.text);
-             roomNameText = ntext.text;
-
-         }
-     }*/
 }

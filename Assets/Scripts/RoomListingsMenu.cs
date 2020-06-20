@@ -11,6 +11,7 @@ public class RoomListingsMenu : MonoBehaviourPunCallbacks
     private Transform _content;
     [SerializeField]
     public RoomListing _roomlisting;
+    GameObject[] _rooms;
 
     public void OnRoomListButtonClicked()
     {
@@ -24,25 +25,30 @@ public class RoomListingsMenu : MonoBehaviourPunCallbacks
     {
         foreach (RoomInfo info in roomList)
         {
-            RoomListing listing = Instantiate(_roomlisting, _content);
-
-            if (listing != null)
+            if (info.PlayerCount == 2 || info.RemovedFromList || !info.IsOpen || !info.IsVisible || info.PlayerCount == 0)
             {
-                listing.SetRoomInfo(info);
+                _rooms = GameObject.FindGameObjectsWithTag("room");
+
+                foreach (GameObject room in _rooms)
+                {
+                    if (room.GetComponent<RoomListing>().roomName == info.Name)
+                    {
+                        Destroy(room);
+                    }
+                }
+
+            }
+            else
+            {
+                RoomListing listing = Instantiate(_roomlisting, _content);
+
+                if (listing != null)
+                {
+                    listing.SetRoomInfo(info);
+                }
             }
         }
     }
 
 
-        /*    public void OnRoomList()
-        {
-            Debug.Log("hi2");
-
-                RoomListing listing = Instantiate(_roomlisting, _content);
-                listing.SetRoomInfo(roomText.text);
-
-        }*/
-
-
-
-    }
+}
