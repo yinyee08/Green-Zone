@@ -217,19 +217,19 @@ public class PhotonPlayer : MonoBehaviour
 
     public void UpdatePlayerHealth(GameObject[] health, float health_value)
     {
-        if (health_value == 1)
+        if (health_value > 0 && health_value <= 30)
         {
             health[0].SetActive(true);
             health[1].SetActive(false);
             health[2].SetActive(false);
         }
-        else if (health_value == 2)
+        else if (health_value > 30 && health_value <= 60)
         {
             health[0].SetActive(true);
             health[1].SetActive(true);
             health[2].SetActive(false);
         }
-        else if (health_value == 3)
+        else if (health_value > 60 && health_value <= 100)
         {
             health[0].SetActive(true);
             health[1].SetActive(true);

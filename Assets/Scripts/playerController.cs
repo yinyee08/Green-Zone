@@ -32,7 +32,7 @@ public class playerController : MonoBehaviour
     public NetworkObjectHandler networkBomb;
     public NetworkObjectHandler networkSpray;
     public NetworkObjectHandler networkHighSpray;
-    private int health = 3;
+    private int health = 100;
     public string disinfectant;
     public string disinfectantPower;
     public string mask;
@@ -370,14 +370,27 @@ public class playerController : MonoBehaviour
         {
             if (!this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
             {
-                health -= 1;
+                health -= 10;
+                attackSound.Play();
+                gameObject.GetComponent<NetworkObject>().SetHealth(health);
+                
+            }
+
+
+        }
+
+        if (other.gameObject.CompareTag("enemyMonster"))
+        {
+            if (!this.gameObject.transform.Find("Head/mask").gameObject.activeSelf)
+            {
+                health -= 20;
                 attackSound.Play();
                 gameObject.GetComponent<NetworkObject>().SetHealth(health);
             }
 
 
         }
-
+        
         if (other.gameObject.tag == "disinfectant")
         {
             timeDisinfectant += 30f;

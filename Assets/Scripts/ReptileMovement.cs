@@ -13,7 +13,7 @@ public class ReptileMovement : MonoBehaviourPun
 
     Vector3[] directions = { Vector3.forward, Vector3.right, Vector3.back, Vector3.left };
     Vector3 currentDir;
-    int reptilehealth = 100;
+    int reptilehealth = 200;
     Vector3 direction1;
     Vector3 direction2;
 
