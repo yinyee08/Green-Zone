@@ -49,8 +49,6 @@ public class PhotonPlayer : MonoBehaviour
 
     public void Awake()
     {
-      //  PhotonNetwork.SerializationRate = 5;
-       // PhotonNetwork.SendRate = 20;
         timer.text = "0.00";
     }
 

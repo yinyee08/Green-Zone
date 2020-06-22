@@ -41,7 +41,7 @@ public class ReptileMovement : MonoBehaviourPun
                 Vector3 direction1 = player1.transform.position - this.transform.position;
                 float angle1 = Vector3.Angle(direction1, this.transform.forward);
 
-                if (Vector2.Distance(player1.transform.position, this.transform.position) < 1.0 && player1.GetComponent<NetworkObject>().GetHealth()>0)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
+                if (Vector2.Distance(player1.transform.position, this.transform.position) < 1.0 && player1.GetComponent<NetworkObject>().GetHealth()>0)
                 {
                     anim.SetBool("isIdle", false);
                     EnemyController(player1.transform, direction1);
@@ -61,8 +61,6 @@ public class ReptileMovement : MonoBehaviourPun
             {
                 Vector3 direction2 = player2.transform.position - this.transform.position;
                 float angle2 = Vector3.Angle(direction2, this.transform.forward);
-
-                //else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
 
                 if (Vector2.Distance(player2.transform.position, this.transform.position) < 1.0 && player2.GetComponent<NetworkObject>().GetHealth() > 0)
 
@@ -145,7 +143,7 @@ public class ReptileMovement : MonoBehaviourPun
             anim.SetBool("isAttack", false);
             if (this.gameObject.GetComponent<NetworkObject>().GetHealth() == 0f)
             {
-                //  pv.RPC("EnemyLose", RpcTarget.All);
+                
                 StartCoroutine(EnemyLose());
                 deathSound.Play();
                 PhotonPlayer.score_earn += 15f;

@@ -188,18 +188,3 @@ public class LoginGame : MonoBehaviour
 
 }
 
-/*
- {"message":
-    {"first_name":"supercell\u200b",
-     "last_name":"supercell\u200b",
-     "alias":"supercell\u200b001",
-     "id":"s01",
-     "created":"2020-06-01 07:55:06",
-     "score":[
-        {"metric_id":"easy_score","metric_name":"easy_score","metric_type":"point","value":"0"},
-        {"metric_id":"medium_score","metric_name":"medium_score","metric_type":"point","value":"0"},
-        {"metric_id":"hard_score","metric_name":"hard_score","metric_type":"point","value":"0"},
-        {"metric_id":"bonus_score","metric_name":"bonus_score","metric_type":"point","value":"0"}
-        ]},
-      "status":"1"}
- */

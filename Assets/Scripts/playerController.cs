@@ -9,7 +9,6 @@ public class playerController : MonoBehaviour
     Animator anim;
     public GameObject normalBomb;
     public GameObject spikeBomb;
-    //public bool IsFirstPerson = false;
 
     public int bombCount = 1;
     public int bombPlanted = 0;
@@ -82,14 +81,6 @@ public class playerController : MonoBehaviour
             pv.RPC("timerDisinfectant", RpcTarget.All);
             pv.RPC("timerDisinfectantPower", RpcTarget.All);
 
-            // timerMask();
-            // timerDisinfectant();
-            // timerDisinfectantPower(); 
-
-            //   if (transform.rotation.eulerAngles.y == 0) currentFacingDirection = "up";
-            //   else if (transform.rotation.eulerAngles.y > 179 && transform.rotation.eulerAngles.y < 181) currentFacingDirection = "down";
-            //  else if (transform.rotation.eulerAngles.y > 89 && transform.rotation.eulerAngles.y < 91) currentFacingDirection = "right";
-            //  else if (transform.rotation.eulerAngles.y > 269 && transform.rotation.eulerAngles.y < 271) currentFacingDirection = "left";
         }
     }
 
@@ -139,7 +130,6 @@ public class playerController : MonoBehaviour
     {
         Collider[] objects = Physics.OverlapSphere(location, 0.1f);
         foreach (Collider coll in objects)
-            // if (coll.gameObject.CompareTag("player1bomb") || coll.gameObject.CompareTag("player2bomb"))
             if (coll.gameObject.CompareTag("bomb"))
                 return false;
         return true;
@@ -149,8 +139,6 @@ public class playerController : MonoBehaviour
     {
         var rotationVector = transform.rotation.eulerAngles;
 
-        //if (IsFirstPerson == false)
-        //{
         if (player == "player1")
         {
             if (Input.GetAxis("Vertical") < 0) { rotationVector.y = 180; }
@@ -293,7 +281,6 @@ public class playerController : MonoBehaviour
 
             if (moveHoriz > 0 && moveright)
             {
-                //autoMoveSideways("moveVertical", moveHoriz);///////////////////////////////working on this
 
                 if (checkIfExistOn(new Vector3(transform.position.x + offsetForOverlapSphere, transform.position.y, transform.position.z), "all") == false)
                 {

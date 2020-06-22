@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class GetTeamAlias : MonoBehaviourPun, IPunObservable
 {
-  //  public NetworkObjectHandler networkObjecthandler;
-   // public float maxX = 10, maxY = 10, maxZ = 10;
-   //public float minX = 1, minY = 1, minZ = 1;
-    // Start is called before the first frame update
+
     public static string team;
     public static string curlevel;
 

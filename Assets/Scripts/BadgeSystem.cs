@@ -23,7 +23,6 @@ public class BadgeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("PLayer 1 : " + player1bonus + " Player 2 : " + player2bonus);
 
         if (player1bonus > 0)
         {
@@ -81,7 +80,7 @@ public class BadgeSystem : MonoBehaviour
         {
 
             goldBadge.SetActive(true);
-            if (PhotonPlayer.score_earn < 100)
+            if (PhotonPlayer.score_earn < 150)
             {
                 goldBadge.transform.GetChild(1).gameObject.SetActive(false);
                 goldBadge.transform.GetChild(2).gameObject.SetActive(false);

@@ -9,12 +9,6 @@ public class GameManager : MonoBehaviour
 
     public Maze mazePrefab;
 
-    //public Player playerPrefab;
-
-    //private Maze mazeInstance;
-
-    //private Player playerInstance;
-
     public float respawnAirDrop = 5.0f;
     private float spawnAirDropTimer;
 
@@ -35,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(BeginGame());
         BeginGame();
     }
 
@@ -69,14 +62,7 @@ public class GameManager : MonoBehaviour
 
         Camera.main.clearFlags = CameraClearFlags.Skybox;
         Camera.main.rect = new Rect(0f, 0f, 1f, 1f);
-        //mazeInstance = Instantiate(mazePrefab) as Maze;
-        //StartCoroutine(mazeInstance.Generate());
 
-        /*playerInstance = Instantiate(playerPrefab) as Player;
-		//playerInstance.TeleportToCell(
-		//	mazeInstance.GetCell(mazeInstance.RandomCoordinates));
-		playerInstance.TeleportToCell(
-			mazeInstance.GetCell(mazeInstance.CenterCoordinates));*/
         if (PlayerPhoton.LocalPlayerInstance == null)
         {
             if (PhotonNetwork.IsMasterClient == true)
@@ -84,7 +70,6 @@ public class GameManager : MonoBehaviour
 
                 networkObjecthandler1.SpawnNetworkObject();
                 clientname = "player1";
-               // Debug.Log("Master : " + clientname);
                 for (int i = 0; i < zombieNumber; i++)
                 {
                     int randomPoint = Random.Range(0, 10);
@@ -97,7 +82,6 @@ public class GameManager : MonoBehaviour
             {
                 networkObjecthandler2.SpawnNetworkObject();
                 clientname = "player2";
-           //     Debug.Log("Client : "+clientname);
             }
 
         }
@@ -119,8 +103,6 @@ public class GameManager : MonoBehaviour
     {
         if (spawnAirDropTimer < respawnAirDrop) return;
 
-        //networkObjecthandler3.SpawnNetworkObject();
-        //BRS_AirDrop.AirDropInstance.transform.position = mazeInstance.GetCell(mazeInstance.RandomCoordinates).transform.position + new Vector3(0f,7f,0f);
         for (int i = 0; i < AirDropWeapons.transform.childCount; i++)
         {
             if (!AirDropWeapons.transform.GetChild(i).gameObject.activeInHierarchy)
@@ -146,12 +128,4 @@ public class GameManager : MonoBehaviour
         spawnZombieTimer = 0f;
     }
 
-    /*private void RestartGame () {
-		StopAllCoroutines();
-		Destroy(mazeInstance.gameObject);
-		if (playerInstance != null) {
-			Destroy(playerInstance.gameObject);
-		}
-		StartCoroutine(BeginGame());
-	}*/
 }

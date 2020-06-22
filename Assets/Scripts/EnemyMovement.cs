@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviourPun
                 Vector3 direction1 = player1.transform.position - this.transform.position;
                 float angle1 = Vector3.Angle(direction1, this.transform.forward);
 
-                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5 && player1.GetComponent<NetworkObject>().GetHealth()>0)// && angle1 < 30 && Vector2.Distance(player1.transform.position, this.transform.position) < (Vector2.Distance(player2.transform.position, this.transform.position)))
+                if (Vector2.Distance(player1.transform.position, this.transform.position) < 0.5 && player1.GetComponent<NetworkObject>().GetHealth()>0)
                 {
                     anim.SetBool("isIdle", false);
                     EnemyController(player1.transform, direction1);
@@ -60,8 +60,6 @@ public class EnemyMovement : MonoBehaviourPun
             {
                 Vector3 direction2 = player2.transform.position - this.transform.position;
                 float angle2 = Vector3.Angle(direction2, this.transform.forward);
-
-                //else if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5)// && angle1 < 30 && Vector2.Distance(player2.transform.position, this.transform.position) < (Vector2.Distance(player1.transform.position, this.transform.position)))
 
                 if (Vector2.Distance(player2.transform.position, this.transform.position) < 0.5 && player2.GetComponent<NetworkObject>().GetHealth() > 0)
 
@@ -88,12 +86,6 @@ public class EnemyMovement : MonoBehaviourPun
             anim.SetBool("isAttack", false);
 
         }
-
-        /*  anim.SetBool("isIdle", false);
-          this.transform.Translate(0, 0, 0.01f);
-          anim.SetBool("isWalking", true);
-          anim.SetBool("isRun", false);
-          anim.SetBool("isAttack", false);*/
 
     }
 
@@ -141,7 +133,6 @@ public class EnemyMovement : MonoBehaviourPun
             this.gameObject.GetComponent<NetworkObject>().SetHealth(zombiehealth);
             if (this.gameObject.GetComponent<NetworkObject>().GetHealth() == 0f)
             {
-                //  pv.RPC("EnemyLose", RpcTarget.All);
                 StartCoroutine(EnemyLose());
                 deathSound.Play();
                 PhotonPlayer.score_earn += 10f;
