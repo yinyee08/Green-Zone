@@ -18,6 +18,7 @@ public class SceneUI : MonoBehaviour
     public void goEasyLevelScene()
     {
         PhotonPlayer.score_earn = 0f;
+        PhotonPlayer.starting = true;
         levelUI = "easy";
         sceneLoad.sceneName = "Scene1";
     }
@@ -25,6 +26,7 @@ public class SceneUI : MonoBehaviour
     public void goMediumLevelScene()
     {
         PhotonPlayer.score_earn = 0f;
+        PhotonPlayer.starting = true;
         levelUI = "medium";
         sceneLoad.sceneName = "Scene2";
     }
@@ -32,6 +34,7 @@ public class SceneUI : MonoBehaviour
     public void goHardLevelScene()
     {
         PhotonPlayer.score_earn = 0f;
+        PhotonPlayer.starting = true;
         levelUI = "hard";
         sceneLoad.sceneName = "Scene3";
     }

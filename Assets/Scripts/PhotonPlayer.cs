@@ -115,7 +115,7 @@ public class PhotonPlayer : MonoBehaviour
                 }
                 else
                 {
-                    health_value2 = 0f ;
+                    health_value2 = 0f;
                     mask_player2.text = "0.00";
                     disinfectant_player2.text = "0.00";
                     disinfectantPower_player2.text = "0.00";
@@ -129,50 +129,53 @@ public class PhotonPlayer : MonoBehaviour
 
                 if (timer.text == "01:05")
                 {
-                    if(warningCount==0)
+                    if (warningCount == 0)
                     {
                         StartCoroutine(reptileSoundEffect());
                         warningCount++;
                     }
                 }
 
-                    if (timer.text == "01:00")
+                if (timer.text == "01:00")
                 {
-                        if (PhotonNetwork.IsMasterClient==true && spawnReptile==0)
-                        {
+                    if (PhotonNetwork.IsMasterClient == true && spawnReptile == 0)
+                    {
                         reptileSpawnSound.Play();
                         spawnReptile = spawnReptile + 1;
                         reptileCharacter.SpawnNetworkObject();
                         reptileSound.Play();
                     }
-                    
+
                 }
 
                 if (timeLeft <= 0.00f)
                 {
 
                     //  timer.text = "UP !";
-                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (health_value1 > 0 && health_value2 > 0))
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (health_value1 > 0 || health_value2 > 0))
                     {
                         //win game
-                        BadgeSystem.player1bonus = health_value1 * 5;
-                        BadgeSystem.player2bonus = health_value2 * 5;
+                        BadgeSystem.player1bonus = (setLives(health_value1)) * 5;
+                        BadgeSystem.player2bonus = (setLives(health_value2)) * 5;
                         winObject.SetActive(true);
                     }
                     else
                     {
                         //lose game
-                        BadgeSystem.player1bonus = health_value1 * 5;
-                        BadgeSystem.player2bonus = health_value2 * 5;
+                        BadgeSystem.player1bonus = (setLives(health_value1)) * 5;
+                        BadgeSystem.player2bonus = (setLives(health_value2)) * 5;
                         loseObject.SetActive(true);
+                        Debug.Log("Lose1");
                     }
                 }
 
                 else if (timeLeft > 0.00f && health_value1 <= 0 && health_value2 <= 0)
                 {
-                    BadgeSystem.player1bonus = health_value1 * 5;
-                    BadgeSystem.player2bonus = health_value2 * 5;
+
+                    BadgeSystem.player1bonus = (setLives(health_value1)) * 5;
+                    BadgeSystem.player2bonus = (setLives(health_value2)) * 5;
                     loseObject.SetActive(true);
+                    Debug.Log("Lose2");
                 }
 
             }
@@ -211,7 +214,7 @@ public class PhotonPlayer : MonoBehaviour
     {
         warningSound.Play();
         yield return new WaitForSeconds(2f);
-        
+
     }
 
 
@@ -241,6 +244,29 @@ public class PhotonPlayer : MonoBehaviour
             health[1].SetActive(false);
             health[2].SetActive(false);
         }
+    }
+
+    public float setLives(float healthvalue)
+    {
+        float live = 0;
+
+        if (healthvalue > 0 && healthvalue <= 30)
+        {
+            live = 1;
+        }
+        else if (healthvalue > 30 && healthvalue <= 60)
+        {
+            live = 2;
+        }
+        else if (healthvalue > 60 && healthvalue <= 100)
+        {
+            live = 3;
+        }
+        else
+        {
+            live = 0;
+        }
+        return live;
     }
 
     public void GotoBadgeScene()
