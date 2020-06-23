@@ -375,7 +375,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -811,7 +811,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &31280683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1797,7 +1797,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -1922,7 +1922,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -2799,7 +2799,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -3408,7 +3408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -3761,7 +3761,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -4145,7 +4145,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -4708,7 +4708,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -4860,7 +4860,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &319703366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5074,7 +5074,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &325020411
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5813,7 +5813,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -7900,7 +7900,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -8068,7 +8068,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -9224,7 +9224,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -10282,7 +10282,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -10931,7 +10931,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &807526285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11088,7 +11088,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -11862,7 +11862,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &877840180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12218,6 +12218,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7700295367049749018, guid: d9e5331e52821724fb6d704b9aed3f1e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700295367049749018, guid: d9e5331e52821724fb6d704b9aed3f1e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -382
+      objectReference: {fileID: 0}
     - target: {fileID: 8146896245869654396, guid: d9e5331e52821724fb6d704b9aed3f1e,
         type: 3}
       propertyPath: m_IsActive
@@ -12343,7 +12353,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -12735,7 +12745,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -14003,7 +14013,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &980069568
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14459,7 +14469,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -15127,7 +15137,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -15315,7 +15325,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -15340,7 +15350,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -15873,7 +15883,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -16515,7 +16525,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -16683,7 +16693,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -16785,7 +16795,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -18937,7 +18947,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -19748,7 +19758,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &1549509597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20394,7 +20404,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &1581613423
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20951,7 +20961,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -21116,7 +21126,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -21749,7 +21759,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -22627,7 +22637,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -24847,7 +24857,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -24942,7 +24952,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -25337,7 +25347,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -25758,7 +25768,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -27024,7 +27034,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 8490053376221714384, guid: 38d2811f57044b348805e5b4b5997d3a,
         type: 3}
       propertyPath: viewIdField
@@ -27549,7 +27559,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &2116872690
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27729,7 +27739,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destructPieces
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 278954131}
     - target: {fileID: 5403167254802887971, guid: 9861841c532e8754e89ebb67dae3a78d,
         type: 3}
       propertyPath: viewIdField
@@ -28109,7 +28119,7 @@ MonoBehaviour:
   explosionRadius: 4
   explosionUpward: 0.4
   wood_texture: {fileID: 2800000, guid: f3731d26acc8921498027ae05b950e50, type: 3}
-  destructPieces: {fileID: 0}
+  destructPieces: {fileID: 278954131}
 --- !u!54 &2141204319
 Rigidbody:
   m_ObjectHideFlags: 0

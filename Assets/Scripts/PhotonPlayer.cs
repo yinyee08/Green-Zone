@@ -151,7 +151,7 @@ public class PhotonPlayer : MonoBehaviour
                 if (timeLeft <= 0.00f)
                 {
 
-                    //  timer.text = "UP !";
+                    
                     if (GameObject.FindGameObjectsWithTag("enemy").Length == 0 && (health_value1 > 0 || health_value2 > 0))
                     {
                         //win game
@@ -165,7 +165,6 @@ public class PhotonPlayer : MonoBehaviour
                         BadgeSystem.player1bonus = (setLives(health_value1)) * 5;
                         BadgeSystem.player2bonus = (setLives(health_value2)) * 5;
                         loseObject.SetActive(true);
-                        Debug.Log("Lose1");
                     }
                 }
 
@@ -175,7 +174,6 @@ public class PhotonPlayer : MonoBehaviour
                     BadgeSystem.player1bonus = (setLives(health_value1)) * 5;
                     BadgeSystem.player2bonus = (setLives(health_value2)) * 5;
                     loseObject.SetActive(true);
-                    Debug.Log("Lose2");
                 }
 
             }

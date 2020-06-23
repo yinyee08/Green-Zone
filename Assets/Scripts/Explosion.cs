@@ -29,7 +29,6 @@ public class Explosion : MonoBehaviour {
         ExplodeStart();
     }
 
-    //[PunRPC]
     void ExplodeStart() { 
 		if(bomb == enabled) {
           Invoke("Detonate",5); //5 seconds

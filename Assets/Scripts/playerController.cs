@@ -375,8 +375,6 @@ public class playerController : MonoBehaviour
                 gameObject.GetComponent<NetworkObject>().SetHealth(health);
                 
             }
-
-
         }
 
         if (other.gameObject.CompareTag("enemyMonster"))
@@ -387,8 +385,6 @@ public class playerController : MonoBehaviour
                 attackSound.Play();
                 gameObject.GetComponent<NetworkObject>().SetHealth(health);
             }
-
-
         }
         
         if (other.gameObject.tag == "disinfectant")
