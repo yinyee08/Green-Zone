@@ -39,12 +39,16 @@ public class BadgeSystem : MonoBehaviour
             StartCoroutine(CheckScoreData(int.Parse(PhotonPlayer.score_earn.ToString())));
         }
 
-        if (!PhotonNetwork.LeaveRoom())
+        if (PhotonNetwork.CurrentRoom != null)
         {
-            PhotonNetwork.LeaveRoom();
-            Debug.Log("LeftRoom ");
+            if (!PhotonNetwork.LeaveRoom())
+            {
+                PhotonNetwork.LeaveRoom();
+                Debug.Log("LeftRoom ");
 
+            }
         }
+
         if (PhotonNetwork.IsConnected == false)
         {
             PhotonNetwork.ConnectUsingSettings();

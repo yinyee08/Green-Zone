@@ -64,7 +64,7 @@ public class PhotonPlayer : MonoBehaviour
     {
 
 
-        if (PhotonNetwork.CurrentRoom != null)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 0)
         {
 
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)

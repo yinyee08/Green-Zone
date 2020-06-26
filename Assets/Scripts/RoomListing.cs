@@ -21,7 +21,8 @@ public class RoomListing : MonoBehaviour
             {
                 PhotonNetwork.LeaveLobby();
             }
-
+            PhotonPlayer.score_earn = 0f;
+            PhotonPlayer.starting = true;
             PhotonNetwork.JoinRoom(roomName);
             Debug.Log("JoinRoom2 : " + roomName);
         });

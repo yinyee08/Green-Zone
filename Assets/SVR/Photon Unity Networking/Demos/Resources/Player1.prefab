@@ -294,7 +294,7 @@ MonoBehaviour:
   bombRange: 1
   bombType: normal
   kickBomb: 0
-  moveSpeed: 0.1
+  moveSpeed: 0.09
   currentFacingDirection: down
   networkBomb: {fileID: -4842707442990913739}
   networkSpray: {fileID: 5043871126026440371}
