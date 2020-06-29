@@ -112,6 +112,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundDetection: {fileID: 1847214439770623932}
   Canopy: {fileID: 8941270685252028663}
+  Parcel: {fileID: 0}
+  disinfectantPowerUp: {fileID: 0}
+  PointLight: {fileID: 0}
+  Smoke: {fileID: 0}
 --- !u!114 &7342509005152370548
 MonoBehaviour:
   m_ObjectHideFlags: 0

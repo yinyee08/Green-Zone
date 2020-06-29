@@ -116,7 +116,7 @@ public class EnemyMovement : MonoBehaviourPun
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "DestructableObj" || collision.gameObject.tag == "wall")
+        if (collision.gameObject.tag == "DestructableObj" || collision.gameObject.tag == "wall" || collision.gameObject.tag == "enemy" || collision.gameObject.tag == "airdrop")
         {
             currentDir = directions[Random.Range(0, 4)];
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(currentDir), 45f);

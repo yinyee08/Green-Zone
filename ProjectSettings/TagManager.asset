@@ -23,6 +23,7 @@ TagManager:
   - disinfectantPower
   - room
   - enemyMonster
+  - airdrop
   layers:
   - Default
   - TransparentFX
